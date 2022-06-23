@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
+
 
 from flask import render_template, redirect, request, url_for
 from flask_login import (
@@ -61,7 +59,7 @@ def register():
 
         username = request.form['username']
         email = request.form['email']
-
+        Github = request.form['github']
         # Check usename exists
         user = Users.query.filter_by(username=username).first()
         if user:

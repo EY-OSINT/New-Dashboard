@@ -1,0 +1,60 @@
+from flask import render_template, redirect, request, url_for
+from fileinput      import filename
+from flask          import render_template, url_for, redirect
+from flask          import Flask,request
+from wtforms        import Form
+from apps import database as db_helper
+import datetime
+import apps 
+from apps.scan import blueprint
+from flask_login import login_required
+from fileinput      import filename
+from flask          import render_template  , url_for, redirect
+import os
+from flask_login    import login_user, logout_user, current_user, login_required
+import apps.database  as db_helper
+from flask import flash
+
+
+@blueprint.route('/scan' )
+@login_required
+def scan():
+     
+    return render_template('home/conf-scan.html',segment='conf-scan')
+
+"""
+   scans= db_helper.fetch_scan_by_name("target_name") 
+   if request.method == 'POST' and not(str(request.get_data()) == "b'add='") :
+         data = request.get_data()
+         name=(str(data).split('=')[1])
+         name_clean=name.split('&')[0]
+
+         if not bool(db_helper.fetch_scan_by_name_and_target_id(name_clean,"target_name")):
+               db_helper.insert_new_scan(name_clean,"target_name") 
+               
+         else:
+           flash("scan already exists")   
+           return render_template('pages/scan.html',scans=scans) 
+
+   if request.form.get('add') == 'add': 
+       return redirect(url_for('scan',target_name="target_name", scans=scans)) 
+ 
+   return render_template('pages/scan.html',target_name="target_name",scans=scans)
+
+@blueprint.route("/start_scan/<target_name>/<scan_name>", methods=['POST'])
+def start_scan(target_name,scan_name):
+       
+           if request.method == 'POST' and request.form.get('Send') == 'Send': 
+
+              return redirect(url_for('url',target_name=target_name,scan_name=scan_name,pagination=1)) 
+              """
+    
+    
+
+
+
+  
+
+        
+
+ 

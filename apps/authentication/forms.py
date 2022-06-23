@@ -1,7 +1,5 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
+
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
@@ -28,4 +26,7 @@ class CreateAccountForm(FlaskForm):
                       validators=[DataRequired(), Email()])
     password = PasswordField('Password',
                              id='pwd_create',
+                             validators=[DataRequired()])
+    github = StringField('Github',
+                             id='gth_create',
                              validators=[DataRequired()])

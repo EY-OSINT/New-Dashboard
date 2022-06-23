@@ -1,11 +1,8 @@
-# -*- encoding: utf-8 -*-
-
-
 from flask import Blueprint
 
 blueprint = Blueprint(
-    'home_blueprint',
+    'scan_blueprint',
     __name__,
     url_prefix='',
-    
+    template_folder=''
 )
