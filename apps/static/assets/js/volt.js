@@ -30,7 +30,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
     var themeSettingsEl = document.getElementById('theme-settings');
     var themeSettingsExpandEl = document.getElementById('theme-settings-expand');
 
-    if(themeSettingsEl) {
+    if (themeSettingsEl) {
 
         var themeSettingsCollapse = new bootstrap.Collapse(themeSettingsEl, {
             show: true,
@@ -44,13 +44,13 @@ d.addEventListener("DOMContentLoaded", function(event) {
             themeSettingsCollapse.hide();
             themeSettingsExpandEl.classList.add('show');
         }
-        
-        themeSettingsEl.addEventListener('hidden.bs.collapse', function () {
+
+        themeSettingsEl.addEventListener('hidden.bs.collapse', function() {
             themeSettingsExpandEl.classList.add('show');
             window.localStorage.setItem('settings_expanded', false);
         });
 
-        themeSettingsExpandEl.addEventListener('click', function () {
+        themeSettingsExpandEl.addEventListener('click', function() {
             themeSettingsExpandEl.classList.remove('show');
             window.localStorage.setItem('settings_expanded', true);
             setTimeout(function() {
@@ -68,18 +68,18 @@ d.addEventListener("DOMContentLoaded", function(event) {
     };
 
     var sidebar = document.getElementById('sidebarMenu')
-    if(sidebar && d.body.clientWidth < breakpoints.lg) {
-        sidebar.addEventListener('shown.bs.collapse', function () {
+    if (sidebar && d.body.clientWidth < breakpoints.lg) {
+        sidebar.addEventListener('shown.bs.collapse', function() {
             document.querySelector('body').style.position = 'fixed';
         });
-        sidebar.addEventListener('hidden.bs.collapse', function () {
+        sidebar.addEventListener('hidden.bs.collapse', function() {
             document.querySelector('body').style.position = 'relative';
         });
     }
 
     var iconNotifications = d.querySelector('.notification-bell');
     if (iconNotifications) {
-        iconNotifications.addEventListener('shown.bs.dropdown', function () {
+        iconNotifications.addEventListener('shown.bs.dropdown', function() {
             iconNotifications.classList.remove('unread');
         });
     }
@@ -89,7 +89,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
     });
 
     [].slice.call(d.querySelectorAll('[data-background-lg]')).map(function(el) {
-        if(document.body.clientWidth > breakpoints.lg) {
+        if (document.body.clientWidth > breakpoints.lg) {
             el.style.background = 'url(' + el.getAttribute('data-background-lg') + ')';
         }
     });
@@ -104,27 +104,27 @@ d.addEventListener("DOMContentLoaded", function(event) {
 
     //Tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
 
     // Popovers
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl)
+    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
     })
-    
+
 
     // Datepicker
     var datepickers = [].slice.call(d.querySelectorAll('[data-datepicker]'))
-    var datepickersList = datepickers.map(function (el) {
+    var datepickersList = datepickers.map(function(el) {
         return new Datepicker(el, {
             buttonClass: 'btn'
-          });
+        });
     })
 
-    if(d.querySelector('.input-slider-container')) {
+    if (d.querySelector('.input-slider-container')) {
         [].slice.call(d.querySelectorAll('.input-slider-container')).map(function(el) {
             var slider = el.querySelector(':scope .input-slider');
             var sliderId = slider.getAttribute('id');
@@ -164,26 +164,26 @@ d.addEventListener("DOMContentLoaded", function(event) {
                 min: parseInt(c.getAttribute('data-range-value-min')),
                 max: parseInt(c.getAttribute('data-range-value-max'))
             }
-        }), c.noUiSlider.on("update", function (a, b) {
+        }), c.noUiSlider.on("update", function(a, b) {
             f[b].textContent = a[b]
         });
     }
 
     //Chartist
 
-    if(d.querySelector('.ct-chart-sales-value')) {
+    if (d.querySelector('.ct-chart-sales-value')) {
         //Chart 5
-          new Chartist.Line('.ct-chart-sales-value', {
+        new Chartist.Line('.ct-chart-sales-value', {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
             series: [
                 [0, 10, 30, 40, 80, 60, 100]
             ]
-          }, {
+        }, {
             low: 0,
             showArea: true,
             fullWidth: true,
             plugins: [
-              Chartist.plugins.tooltip()
+                Chartist.plugins.tooltip()
             ],
             axisX: {
                 // On the x-axis start means top and end means bottom
@@ -201,18 +201,18 @@ d.addEventListener("DOMContentLoaded", function(event) {
         });
     }
 
-    if(d.querySelector('.ct-chart-ranking')) {
+    if (d.querySelector('.ct-chart-ranking')) {
         var chart = new Chartist.Bar('.ct-chart-ranking', {
             labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
             series: [
-              [1, 5, 2, 5, 4, 3],
-              [2, 3, 4, 8, 1, 2],
+                [1, 5, 2, 5, 4, 3],
+                [2, 3, 4, 8, 1, 2],
             ]
-          }, {
+        }, {
             low: 0,
             showArea: true,
             plugins: [
-              Chartist.plugins.tooltip()
+                Chartist.plugins.tooltip()
             ],
             axisX: {
                 // On the x-axis start means top and end means bottom
@@ -224,34 +224,34 @@ d.addEventListener("DOMContentLoaded", function(event) {
                 showLabel: false,
                 offset: 0
             }
-            });
-          
-          chart.on('draw', function(data) {
-            if(data.type === 'line' || data.type === 'area') {
-              data.element.animate({
-                d: {
-                  begin: 2000 * data.index,
-                  dur: 2000,
-                  from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                  to: data.path.clone().stringify(),
-                  easing: Chartist.Svg.Easing.easeOutQuint
-                }
-              });
+        });
+
+        chart.on('draw', function(data) {
+            if (data.type === 'line' || data.type === 'area') {
+                data.element.animate({
+                    d: {
+                        begin: 2000 * data.index,
+                        dur: 2000,
+                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+                        to: data.path.clone().stringify(),
+                        easing: Chartist.Svg.Easing.easeOutQuint
+                    }
+                });
             }
         });
     }
 
-    if(d.querySelector('.ct-chart-traffic-share')) {
+    if (d.querySelector('.ct-chart-traffic-share')) {
         var data = {
             series: [70, 20, 10]
-          };
-          
-          var sum = function(a, b) { return a + b };
-          
-          new Chartist.Pie('.ct-chart-traffic-share', data, {
+        };
+
+        var sum = function(a, b) { return a + b };
+
+        new Chartist.Pie('.ct-chart-traffic-share', data, {
             labelInterpolationFnc: function(value) {
-              return Math.round(value / data.series.reduce(sum) * 100) + '%';
-            },            
+                return Math.round(value / data.series.reduce(sum) * 100) + '%';
+            },
             low: 0,
             high: 8,
             donut: true,
@@ -260,21 +260,21 @@ d.addEventListener("DOMContentLoaded", function(event) {
             fullWidth: false,
             showLabel: false,
             plugins: [
-              Chartist.plugins.tooltip()
+                Chartist.plugins.tooltip()
             ],
-        });         
+        });
     }
 
     if (d.getElementById('loadOnClick')) {
-        d.getElementById('loadOnClick').addEventListener('click', function () {
+        d.getElementById('loadOnClick').addEventListener('click', function() {
             var button = this;
             var loadContent = d.getElementById('extraContent');
             var allLoaded = d.getElementById('allLoadedText');
-    
+
             button.classList.add('btn-loading');
             button.setAttribute('disabled', 'true');
-    
-            setTimeout(function () {
+
+            setTimeout(function() {
                 loadContent.style.display = 'block';
                 button.style.display = 'none';
                 allLoaded.style.display = 'block';
@@ -287,7 +287,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
         speedAsDuration: true
     });
 
-    if(d.querySelector('.current-year')){
+    if (d.querySelector('.current-year')) {
         d.querySelector('.current-year').textContent = new Date().getFullYear();
     }
 
@@ -298,7 +298,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
             type: 'carousel',
             startAt: 0,
             perView: 3
-          }).mount();
+        }).mount();
     }
 
     if (d.querySelector('.glide-testimonials')) {
@@ -307,7 +307,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
             startAt: 0,
             perView: 1,
             autoplay: 2000
-          }).mount();
+        }).mount();
     }
 
     if (d.querySelector('.glide-clients')) {
@@ -316,7 +316,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
             startAt: 0,
             perView: 5,
             autoplay: 2000
-          }).mount();
+        }).mount();
     }
 
     if (d.querySelector('.glide-news-widget')) {
@@ -325,7 +325,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
             startAt: 0,
             perView: 1,
             autoplay: 2000
-          }).mount();
+        }).mount();
     }
 
     if (d.querySelector('.glide-autoplay')) {
@@ -334,17 +334,17 @@ d.addEventListener("DOMContentLoaded", function(event) {
             startAt: 0,
             perView: 3,
             autoplay: 2000
-          }).mount();
+        }).mount();
     }
 
     // Pricing countup
     var billingSwitchEl = d.getElementById('billingSwitch');
-    if(billingSwitchEl) {
+    if (billingSwitchEl) {
         const countUpStandard = new countUp.CountUp('priceStandard', 99, { startVal: 199 });
         const countUpPremium = new countUp.CountUp('pricePremium', 199, { startVal: 299 });
-        
+
         billingSwitchEl.addEventListener('change', function() {
-            if(billingSwitch.checked) {
+            if (billingSwitch.checked) {
                 countUpStandard.start();
                 countUpPremium.start();
             } else {
@@ -353,5 +353,6 @@ d.addEventListener("DOMContentLoaded", function(event) {
             }
         });
     }
+
 
 });
