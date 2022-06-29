@@ -1,24 +1,26 @@
+from re import X
 from flask import render_template, redirect, request, url_for
 from fileinput      import filename
-from flask          import render_template, url_for, redirect
-from flask          import Flask,request
 from wtforms        import Form
-from apps import database as db_helper
 import datetime
 import apps 
 from apps.scan import blueprint
-from flask_login import login_required
-from fileinput      import filename
-from flask          import render_template  , url_for, redirect
+from flask_login import login_required  
+from werkzeug.utils import secure_filename
 import os
-from flask_login    import login_user, logout_user, current_user, login_required
 import apps.database  as db_helper
 from flask import flash
 
 
-@blueprint.route('/scan' )
+
+@blueprint.route('/scan',methods=["GET","POST"])
 @login_required
 def scan():
+    if request.method=='POST':
+        target_name=request.form.get("target_name")=='target_name'
+        scan_name=request.form.get("scan_name")=='scan_name'
+        f=request.files['input']
+        f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))
      
     return render_template('home/conf-scan.html',segment='conf-scan')
 

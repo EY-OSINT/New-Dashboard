@@ -272,6 +272,7 @@
                                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionPricing">
                                     <div class="accordion-body">
                                         <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked>
                                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" disabled checked>
                                             <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Domain Module </label>
                                         </div>
@@ -328,6 +329,27 @@
             </div>
 
         </div>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" id="formFile" name="input">
+            </div>
+        </form>
+        <div class="card card-body border-0 shadow mb-8">
+            <div class=" Google selectt">
+                <strong>Google</strong> is a procedural programming language</div>
+            <div class="card card-body border-0 shadow mb-4">
+                <strong>C++</strong> is a general purpose programming language</div>
+            <div class="card card-body border-0 shadow mb-4">
+                <strong>Python</strong> is a widely used general-purpose, high level programming language.</div>
+            <div class="card card-body border-0 shadow mb-4">
+                <strong>Java</strong> is a most popular programming language for many years.</div>
+            <div class="card card-body border-0 shadow mb-4">
+                <fieldset>
+                    <legend class="h5">Choose google dorking file </legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios0" value="all_google_dork ">
+                        <label class="form-check-label" for="exampleRadios2">
         <div class="card card-body border-0 shadow mb-4">
             <fieldset>
                 
@@ -338,15 +360,15 @@
                         all_google.json
                     </label>
                     </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="advisories_and_vulnerabilities  " checked>
-                    <label class="form-check-label" for="exampleRadios1">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="advisories_and_vulnerabilities  " checked>
+                        <label class="form-check-label" for="exampleRadios1">
                         advisories_and_vulnerabilities
                     </label>
                     </div>
                     <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="error_messages ">
-                    <label class="form-check-label" for="exampleRadios2">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="error_messages ">
+                        <label class="form-check-label" for="exampleRadios2">
                         error_messages 
                     </label>
                     </div>
@@ -355,74 +377,75 @@
                         <label class="form-check-label" for="exampleRadios2">
                             files_containing_usernames
                         </label>
-                        </div>
+                    </div>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="pages_containing_login_portals">
                         <label class="form-check-label" for="exampleRadios2">
                             pages_containing_login_portals
                         </label>
-                        </div>
-                                        <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="various_online_devices ">
-                    <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="various_online_devices ">
+                        <label class="form-check-label" for="exampleRadios2">
                         various_online_devices
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="web_server_detection ">
-                    <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="web_server_detection ">
+                        <label class="form-check-label" for="exampleRadios2">
                         web_server_detection
                     </label>
                     </div>
 
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="files_containing_juicy_info ">
-                            <label class="form-check-label" for="exampleRadios2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="files_containing_juicy_info ">
+                        <label class="form-check-label" for="exampleRadios2">
                                 files_containing_juicy_info 
                             </label>
-                            </div>
-            
-        
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios8" value="sensitive_directories ">
-                                    <label class="form-check-label" for="exampleRadios2">
+                    </div>
+
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios8" value="sensitive_directories ">
+                        <label class="form-check-label" for="exampleRadios2">
                                         sensitive_directories 
                                     </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios9" value="vulnerable_files ">
-                                        <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios9" value="vulnerable_files ">
+                        <label class="form-check-label" for="exampleRadios2">
                                             vulnerable_files
                                         </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="files_containing_passwords  ">
-                                            <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="files_containing_passwords  ">
+                        <label class="form-check-label" for="exampleRadios2">
                                                 files_containing_passwords
                                             </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="sensitive_online_shopping_info ">
-                                                <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios11" value="sensitive_online_shopping_info ">
+                        <label class="form-check-label" for="exampleRadios2">
                                                     sensitive_online_shopping_info 
                                                 </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios12" value="network_or_vulnerability_data   ">
-                                                    <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios12" value="network_or_vulnerability_data   ">
+                        <label class="form-check-label" for="exampleRadios2">
                                                         network_or_vulnerability_data
                                                     </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios13" value="vulnerable_servers">
-                                                        <label class="form-check-label" for="exampleRadios2">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios13" value="vulnerable_servers">
+                        <label class="form-check-label" for="exampleRadios2">
                                                             vulnerable_servers
                                                         </label>
-                                                        </div>
-                <!-- End of Radio -->
-            </fieldset>
-        </div>
+                    </div>
+                    <!-- End of Radio -->
+                </fieldset>
+            </div>
 
+<<<<<<< HEAD
         <div class="card card-body border-0 shadow mb-4">
             <fieldset>
                 <legend class="h5">Choose a file for directory listing module  </legend>
@@ -439,8 +462,84 @@
         </div>
 
         <button class="btn w-100 btn-secondary text-dark" type="button">Start scan </button>
+=======
+            <div class="card card-body border-0 shadow mb-4">
+                <fieldset>
+                    <legend class="h5">Choose github dork file </legend>
+                    <div class="center ">
+                        <button class="btn w-80 btn-outline-primary animate-down-2 250px  " type="button">wordlist 1</button>
+                        <button class="btn w-60 btn  btn-outline-primary animate-down-2" type="button">wordlist 2</button>
+                        <button class="btn w-45 btn btn-outline-primary animate-down-2 " type="button">wordlist 3</button>
+                    </div>
+                    <div class="mb-4">
+                        <label for="formFile" class="form-label">Default file input example</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                </fieldset>
+            </div>
 
-        {% endblock content %}
+            <div class="card card-body border-0 shadow mb-4">
 
-        <!-- Specific Page JS goes HERE  -->
-        {% block javascripts %}{% endblock javascripts %}
+                <h2 class="h5 mb-4">Proxy list Configuration</h2>
+                <label class="my-1 me-2" for="proxy_type">Select proxy type </label>
+                <select class="form-select mb-4" id="proxy_type" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">HTTP</option>
+                    <option value="2">HTTPS</option>
+                    <option value="3">SOCKS4</option>
+                    <option value="3">SOCKS5</option>
+                </select>
+                <label class="my-1 me-2" for="proxy_number">Select proxies number</label>
+                <select class="form-select mb-4" id="proxy_number" aria-label="Default select example">
+                <option selected>Choose a number</option>
+                <option value="1">One-1</option>
+                <option value="2">Two-2</option>
+                <option value="3">Three-3</option>
+                <option value="4">Four-4</option>
+                <option value="5">Five-5</option>
+                <option value="6">Six-6</option>
+                <option value="7">Seven-7</option>
+                <option value="8">Eight-8</option>
+                <option value="9">Nine-9</option>
+                <option value="10">Ten-10</option>
+                <option value="11">Eleven-11</option>
+                <option value="12">Twelve-12</option>
+                <option value="13">thirteen-13</option>
+                <option value="14">Fourteen-14</option>
+                <option value="15">fifteen-15</option>
+                <option value="16">Sixteen-16</option>
+                <option value="17">Seventeen-17</option>
+                <option value="18">Eighteen-18</option>
+                <option value="19">Nineteen-19</option>
+                <option value="20">Twenty-20</option>
+
+            </select>
+                <fieldset>
+                    <legend class="h6 ">Select the level of tansparency</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                        transparent
+                    </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                        anonymous
+                    </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <label class="form-check-label" for="exampleRadios2">
+                         high
+                        </label>
+                    </div>
+                    <!-- End of Radio -->
+                </fieldset>
+            </div>
+>>>>>>> fbdaaa6556770020fa5757a8395f700b4c3930a8
+
+            {% endblock content %}
+
+            <!-- Specific Page JS goes HERE  -->
+            {% block javascripts %}{% endblock javascripts %}
