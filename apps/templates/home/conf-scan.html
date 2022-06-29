@@ -93,7 +93,68 @@
 
             </form>
         </div>
+        <div class="card card-body border-0 shadow mb-4">
 
+            <h2 class="h5 mb-4">Proxy list Configuration</h2>
+            <label class="my-1 me-2"  for="proxy_type">Select proxy type </label>
+                <select class="form-select mb-4" id="proxy_type" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">HTTP</option>
+                    <option value="2">HTTPS</option>
+                    <option value="3">SOCKS4</option>
+                    <option value="3">SOCKS5</option>
+                </select>
+            <label class="my-1 me-2" for="proxy_number">Select proxies number</label>
+            <select class="form-select mb-4" id="proxy_number" aria-label="Default select example">
+                <option selected>Choose a number</option>
+                <option value="1">One-1</option>
+                <option value="2">Two-2</option>
+                <option value="3">Three-3</option>
+                <option value="4">Four-4</option>
+                <option value="5">Five-5</option>
+                <option value="6">Six-6</option>
+                <option value="7">Seven-7</option>
+                <option value="8">Eight-8</option>
+                <option value="9">Nine-9</option>
+                <option value="10">Ten-10</option>
+                <option value="11">Eleven-11</option>
+                <option value="12">Twelve-12</option>
+                <option value="13">thirteen-13</option>
+                <option value="14">Fourteen-14</option>
+                <option value="15">fifteen-15</option>
+                <option value="16">Sixteen-16</option>
+                <option value="17">Seventeen-17</option>
+                <option value="18">Eighteen-18</option>
+                <option value="19">Nineteen-19</option>
+                <option value="20">Twenty-20</option>
+
+            </select>
+            <fieldset>
+                <legend class="h6 ">Select the level of tansparency</legend>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        transparent
+                    </label>
+                    </div>
+                    <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                        anonymous
+                    </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <label class="form-check-label" for="exampleRadios2">
+                         high
+                        </label>
+                    </div>
+                <!-- End of Radio -->
+            </fieldset>
+            <button type="button"  class="btn w-45  btn-gray-300" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="it shows proxy list result">
+                Submit Configuration
+              </button>
+        </div>
 
 
 
@@ -266,21 +327,11 @@
                 </div>
             </div>
 
-            <div class="card card-body border-0 shadow mb-4">
-                <div class=" Google selectt">
-                    <strong>Google</strong> is a procedural programming language</div>
-                <div class="card card-body border-0 shadow mb-4">
-                    <strong>C++</strong> is a general purpose programming language</div>
-                <div class="card card-body border-0 shadow mb-4">
-                    <strong>Python</strong> is a widely used general-purpose, high level programming language.</div>
-                <div class="card card-body border-0 shadow mb-4">
-                    <strong>Java</strong> is a most popular programming language for many years.</div>
-            </div>
-
         </div>
         <div class="card card-body border-0 shadow mb-4">
             <fieldset>
-                <legend class="h5">Choose google dorking file </legend>
+                
+                <legend class="h5">Choose github dork file </legend>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios0" value="all_google_dork ">
                     <label class="form-check-label" for="exampleRadios2">
@@ -374,11 +425,11 @@
 
         <div class="card card-body border-0 shadow mb-4">
             <fieldset>
-                <legend class="h5">Choose github dork file </legend>
+                <legend class="h5">Choose a file for directory listing module  </legend>
                 <div class="center ">
-                    <button class="btn w-80 btn-outline-primary animate-down-2 250px  " type="button">wordlist 1</button>
-                    <button class="btn w-60 btn  btn-outline-primary animate-down-2" type="button">wordlist 2</button>
-                    <button class="btn w-45 btn btn-outline-primary animate-down-2 " type="button">wordlist 3</button>
+                    <button class="btn w-80 btn-outline-primary animate-down-2 mb-4" type="button">wordlist 1</button>
+                    <button class="btn w-60 btn  btn-outline-primary animate-down-2 mb-4" type="button">wordlist 2</button>
+                    <button class="btn w-45 btn btn-outline-primary animate-down-2 mb-4" type="button">wordlist 3</button>
                 </div>
                 <div class="mb-4">
                     <label for="formFile" class="form-label">Default file input example</label>
@@ -387,65 +438,7 @@
             </fieldset>
         </div>
 
-        <div class="card card-body border-0 shadow mb-4">
-
-            <h2 class="h5 mb-4">Proxy list Configuration</h2>
-            <label class="my-1 me-2"  for="proxy_type">Select proxy type </label>
-                <select class="form-select mb-4" id="proxy_type" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    <option value="1">HTTP</option>
-                    <option value="2">HTTPS</option>
-                    <option value="3">SOCKS4</option>
-                    <option value="3">SOCKS5</option>
-                </select>
-            <label class="my-1 me-2" for="proxy_number">Select proxies number</label>
-            <select class="form-select mb-4" id="proxy_number" aria-label="Default select example">
-                <option selected>Choose a number</option>
-                <option value="1">One-1</option>
-                <option value="2">Two-2</option>
-                <option value="3">Three-3</option>
-                <option value="4">Four-4</option>
-                <option value="5">Five-5</option>
-                <option value="6">Six-6</option>
-                <option value="7">Seven-7</option>
-                <option value="8">Eight-8</option>
-                <option value="9">Nine-9</option>
-                <option value="10">Ten-10</option>
-                <option value="11">Eleven-11</option>
-                <option value="12">Twelve-12</option>
-                <option value="13">thirteen-13</option>
-                <option value="14">Fourteen-14</option>
-                <option value="15">fifteen-15</option>
-                <option value="16">Sixteen-16</option>
-                <option value="17">Seventeen-17</option>
-                <option value="18">Eighteen-18</option>
-                <option value="19">Nineteen-19</option>
-                <option value="20">Twenty-20</option>
-
-            </select>
-            <fieldset>
-                <legend class="h6 ">Select the level of tansparency</legend>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                    <label class="form-check-label" for="exampleRadios1">
-                        transparent
-                    </label>
-                    </div>
-                    <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                    <label class="form-check-label" for="exampleRadios2">
-                        anonymous
-                    </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                        <label class="form-check-label" for="exampleRadios2">
-                         high
-                        </label>
-                    </div>
-                <!-- End of Radio -->
-            </fieldset>
-        </div>
+        <button class="btn w-100 btn-secondary text-dark" type="button">Start scan </button>
 
         {% endblock content %}
 
