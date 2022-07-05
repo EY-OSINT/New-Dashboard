@@ -42,13 +42,14 @@ def scan():
             print("active")
         if request.form['custom_scan']:
             if request.form['Custom_Domain']:
-               if request.form.get('checkbox')='Custom_Domain':
+               if request.form.get('checkbox')!='Custom_Domain':
                 f=request.files['input']
                 f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))   
-            print("custom")  
+                print("custom Domain Module NOT CHECKED file must be uploaded")
+                if request.form.get('checkbox') == 'Custom_Subdomain':
+            
             f=request.files['input']
-            f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))
-        
+            f.save(os.path.join(os.getcwd(),secure_filename(f.filename))) 
     return render_template('home/conf-scan.html',segment='conf-scan')
 
 """
