@@ -30,12 +30,12 @@ def scan():
             #function to be created IMPORTANT FETCH TARGET BY ... IMPORTANT 
           #  if not bool(db_helper.fetch_scan_by_name_and_target_id(target_name,"target_name")):
            #    db_helper.insert_new_scan(target_name,"target_name")
-            
+        
 
-        print(target_name)
-        print(scan_name)
-        print(github_name)
-        print(scan_name)
+            print(target_name)
+            print(scan_name)
+            print(github_name)
+            print(scan_name)
         if request.form['passive_scan']:
             print("passive")
         if request.form['active_scan']:
@@ -47,8 +47,7 @@ def scan():
                 f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))   
                 print("custom Domain Module NOT CHECKED file must be uploaded")
                 if request.form.get('checkbox') == 'Custom_Subdomain':
-            
-            f=request.files['input']
+                f=request.files['input']
             f.save(os.path.join(os.getcwd(),secure_filename(f.filename))) 
     return render_template('home/conf-scan.html',segment='conf-scan')
 
