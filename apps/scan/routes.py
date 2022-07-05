@@ -42,7 +42,7 @@ def scan():
             print("active")
         if request.form['custom_scan']:
             if request.form['Custom_Domain']:
-               if request.form.get('checkbox')='Custom_Domain':
+               if request.form.get('checkbox')=='Custom_Domain':
                 f=request.files['input']
                 f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))   
             print("custom")  
