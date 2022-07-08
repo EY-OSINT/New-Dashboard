@@ -37,4 +37,22 @@ def merge_files(file1,file2,file3,output_file):
                 for line in infile:
                     outfile.write(line)
     return
+<<<<<<< HEAD
 >>>>>>> e759e25f3e2e6319f79e18cd4f5b79712dd351d0
+=======
+#Function that removes duplicate LINES from file to output_file
+import os
+def remove_duplicates(file,output_file):
+    openFile = open(file, "r")
+    writeFile = open(output_file, "w") 
+    #Store traversed lines
+    tmp = set() 
+    for txtLine in openFile: 
+    #Check new line
+        if txtLine not in tmp: 
+            writeFile.write(txtLine) 
+    #Add new traversed line to tmp 
+            tmp.add(txtLine)         
+    openFile.close() 
+    writeFile.close()  
+>>>>>>> f2d924d71c855574f0acb2fe2f7a531a6ea42be6
