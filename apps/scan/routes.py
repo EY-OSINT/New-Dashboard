@@ -11,8 +11,8 @@ from werkzeug.utils import secure_filename
 import os
 import apps.database  as db_helper
 from flask import flash
-
-
+from .. import Library
+import os 
 
 @blueprint.route('/scan',methods=["GET","POST"])
 @login_required
@@ -22,8 +22,16 @@ def scan():
         if request.form['start_scan'] == 'start_scan':
             if request.form['target_name'] == 'target_name':
                 target_name=request.form['target_name']
+                if not bool(db_helper.fetch_by_name("target",target_name)):
+                    target_id=db_helper.insert_new_target(target_name)
             if request.form['scan_name']== 'scan_name':
                 scan_name=request.form['scan_name']
+                if not bool(db_helper.fetch_scan_by_name_and_target_id(scan_name,target_name)):
+                   db_helper.insert_new_scan(scan_name,target_name)
+                   try:
+                       os.system("mkdir scans_folder/"+target_name+"/"+scan_name)
+                   except:
+                       print("do not create the same folder twice")
             if request.form['github_name'] == 'github_name':
                 github_name=request.form['github_name']
             if request.form['shodan_name'] == 'shodan_name':
@@ -56,9 +64,14 @@ def scan():
                 f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
                 print("custom Domain Module NOT CHECKED file must be uploaded")
                 if request.form.get('checkbox') == 'Custom_Subdomain':
+<<<<<<< HEAD
+                  print("subdomain")
+                  
+=======
                     subdomain.Custom(target_name,scan_name)
                 if request.form.get('checkbox')=='Custom_Directory':
                     print('Custom_dir')
+>>>>>>> e759e25f3e2e6319f79e18cd4f5b79712dd351d0
     return render_template('home/conf-scan.html',segment='conf-scan')
 
 """

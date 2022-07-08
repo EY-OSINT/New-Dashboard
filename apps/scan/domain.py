@@ -23,8 +23,8 @@ def check(email):
 #from app import app
 dirname = os.path.dirname(__file__)
 dir = os.getcwd()
-files = os.listdir('uploads')
-file = os.path.join(dir, r"uploads/ipinfo.txt")
+files = os.listdir('scans_folder/domain')
+file = os.path.join(dir, r"scans_folder/domain/upload.txt")
 
 #function puts domains into database
 
@@ -122,30 +122,19 @@ def main_ip(keyjson):
 def domains():
     try:    
         
-        f=open(file).read()
-        outfile_domains = open("scans_folder/domains_input", "w")
-        outfile_ip = open("scans_folder/ip_input", "w")
-        outfile_email = open("scans_folder/email_input", "w")
-
-        
+        f=open(file).read() 
         for ligne in f.split('\n'):
              x = '{"domain" :'+ '"'+ligne +'"'+ '}'
              if not iptools.ipv4.validate_ip(ligne):
                  if(check(ligne)):
-                    outfile_email.write(ligne)
                     domain_from_mail=ligne.split('@')[1]
                     x = '{"domain" :'+ '"'+domain_from_mail +'"'+ '}'
-                 if(not check(ligne)):
-                     outfile_domains.write(ligne)
                  main(x)
              else:
-                 outfile_ip.write(ligne)
                  x = '{"ip" :'+ '"'+ligne +'"'+ '}'
-                 print (x)
                  l=main_ip(x)
 
                  for line in l:
-                   
                     x = '{"domain" :'+ '"'+line +'"'+ '}'
                     main(x)
                    
