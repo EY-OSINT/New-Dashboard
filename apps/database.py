@@ -15,6 +15,37 @@ def fetch_by_name(table_name:str,name:str) -> list:
             "name": result[1]    }
     return item
 
+def fetch_all_domains_by_scan_name(scan_name:str,target_name:str) -> dict:
+    database = r"app/database.db"
+    conn= sqlite3.connect(database)
+    scan= fetch_scan_by_name(scan_name,target_name)
+    scan_id=scan[0].get('id')
+    query_results = conn.execute("Select * from domain where scan_id="+scan_id+";").fetchall()
+    conn.close()
+    domains_list = []
+    for result in query_results:
+        item = {
+            "id": result[0],
+            "name": result[1],        }
+        domains_list.append(item)
+    return domains_list
+def insert_new_domain(text: str,scan_name:str,target_name: str) ->  int:
+    database = r"app/database.db"
+    conn= sqlite3.connect(database)
+    scan= fetch_scan_by_name(scan_name,target_name)
+    scan_id=scan[0].get('id')
+    #conn = db.connect()
+    query = 'insert into domain (name) VALUES ( "{}");'.format(text)
+    query2= 'insert into domain (scan_id) VALUES ("{}");'.format(scan_id)
+    conn.execute(query)
+    conn.execute(query2)
+    conn.commit()
+    query_results = conn.execute("Select * from Domains where scan_id="+scan_id+";")
+    query_results = [x for x in query_results]
+    domain_id = query_results[0][0]
+    conn.commit()
+    conn.close()
+    return domain_id
 #####################################################SCAN FUNCTIONS #####################################################################################################################################################################################################################################################################################################################################################
 def insert_new_scan(text: str,target_name:str) ->  int:
     database = r"app/database.db"
