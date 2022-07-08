@@ -4,7 +4,7 @@ from fileinput      import filename
 from wtforms        import Form
 import datetime
 import apps 
-import subdomain
+from . import subdomain
 from apps.scan import blueprint
 from flask_login import login_required  
 from werkzeug.utils import secure_filename
