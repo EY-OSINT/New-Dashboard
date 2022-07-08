@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import re 
 import iptools
 def check(email):
@@ -26,7 +26,7 @@ def get_three_files(file,target_name,scan_name):
         else:
             outfile_ip.write(ligne)
             x = '{"ip" :'+ '"'+ligne +'"'+ '}'    
-=======
+
 #FUNCTION THAT MERGES ANY NUMBER OF FILES INTO output_file concatinates them in queue.
 def merge_files(file1,file2,file3,output_file):
     
@@ -37,9 +37,7 @@ def merge_files(file1,file2,file3,output_file):
                 for line in infile:
                     outfile.write(line)
     return
-<<<<<<< HEAD
->>>>>>> e759e25f3e2e6319f79e18cd4f5b79712dd351d0
-=======
+
 #Function that removes duplicate LINES from file to output_file
 import os
 def remove_duplicates(file,output_file):
@@ -55,4 +53,3 @@ def remove_duplicates(file,output_file):
             tmp.add(txtLine)         
     openFile.close() 
     writeFile.close()  
->>>>>>> f2d924d71c855574f0acb2fe2f7a531a6ea42be6

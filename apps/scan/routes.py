@@ -64,14 +64,9 @@ def scan():
                 f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
                 print("custom Domain Module NOT CHECKED file must be uploaded")
                 if request.form.get('checkbox') == 'Custom_Subdomain':
-<<<<<<< HEAD
-                  print("subdomain")
-                  
-=======
                     subdomain.Custom(target_name,scan_name)
                 if request.form.get('checkbox')=='Custom_Directory':
                     print('Custom_dir')
->>>>>>> e759e25f3e2e6319f79e18cd4f5b79712dd351d0
     return render_template('home/conf-scan.html',segment='conf-scan')
 
 """
