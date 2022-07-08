@@ -7,8 +7,7 @@ import requests
 import json
 from typing import List
 from bs4 import BeautifulSoup as bs4
-
-from app import database as db_helper
+import database as db_helper
 
 import re
  
