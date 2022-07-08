@@ -4,6 +4,7 @@ from fileinput      import filename
 from wtforms        import Form
 import datetime
 import apps 
+import subdomain
 from apps.scan import blueprint
 from flask_login import login_required  
 from werkzeug.utils import secure_filename
@@ -46,18 +47,31 @@ def scan():
             print(scan_name)
         if request.form['passive_scan']:
             print("passive")
+            subdomain.Passive(target_name,scan_name)
         if request.form['active_scan']:
             print("active")
+            subdomain.Active(target_name,scan_name)
         if request.form['custom_scan']:
             print("elimiante error")
-            if request.form['Custom_Domain'] :
-               if request.form.get('checkbox')!='Custom_Domain':
+            if request.form['Custom_Domain']:
+                if request.form.get('checkbox')!='Custom_Domain':
+                    print('ee')
+                    print('ENTER YOUR OWN LIST')
+                elif request.form.get('checkbox')=='Custom_Domain':
+                    print('whois module')
+                    print('validation')
                 f=request.files['input']
-                f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))   
+                f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
                 print("custom Domain Module NOT CHECKED file must be uploaded")
                 if request.form.get('checkbox') == 'Custom_Subdomain':
+<<<<<<< HEAD
                   print("subdomain")
                   
+=======
+                    subdomain.Custom(target_name,scan_name)
+                if request.form.get('checkbox')=='Custom_Directory':
+                    print('Custom_dir')
+>>>>>>> e759e25f3e2e6319f79e18cd4f5b79712dd351d0
     return render_template('home/conf-scan.html',segment='conf-scan')
 
 """
