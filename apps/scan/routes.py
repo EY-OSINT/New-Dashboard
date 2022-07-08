@@ -53,7 +53,7 @@ def scan():
                     print('whois module')
                     print('validation')
                 f=request.files['input']
-                f.save(os.path.join(os.getcwd(),secure_filename(f.filename)))   
+                f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
                 print("custom Domain Module NOT CHECKED file must be uploaded")
                 if request.form.get('checkbox') == 'Custom_Subdomain':
                     subdomain.Custom(target_name,scan_name)
