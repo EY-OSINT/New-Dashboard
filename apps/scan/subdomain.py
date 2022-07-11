@@ -1,8 +1,8 @@
-
+from msilib.schema import File
 from re import sub
 from wsgiref.util import request_uri
 from flask import Flask,render_template, request, url_for, redirect
-from .. import database as db
+import  database as db
 import   os
 import   json
 import   sys 
