@@ -67,13 +67,34 @@ def scan_config():
                         subdomain.Custom(target_name,scan_name)
                     if request.form.get('checkbox')=='Custom_Directory':
                         print('Custom_dir')
-        return render_template(url_for('scan_blueprint.all_scans'))
-    return render_template('home/conf-scan.html',segment='conf-scan')
+        return render_template(url_for('scan_blueprint.all_scans',form=scan_form))
+    return render_template('home/conf-scan.html',segment='conf-scan',form=scan_form)
+
+
 @blueprint.route('/all_scans',methods=["GET","POST"])
 @login_required
 def all_scans():
 
     return
+# Errors
+
+
+
+@blueprint.errorhandler(403)
+def access_forbidden(error):
+    return render_template('home/page-403.html'), 403
+
+
+@blueprint.errorhandler(404)
+def not_found_error(error):
+    return render_template('home/page-404.html'), 404
+
+
+@blueprint.errorhandler(500)
+def internal_error(error):
+    return render_template('home/page-500.html'), 500
+
+
 """
    scans= db_helper.fetch_scan_by_name("target_name") 
    if request.method == 'POST' and not(str(request.get_data()) == "b'add='") :
