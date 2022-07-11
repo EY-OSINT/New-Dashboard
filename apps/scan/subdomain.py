@@ -4,7 +4,6 @@ from .. import  database as db
 import   os
 import   json
 import   sys 
-import   os
 import subprocess
 import hashlib
 dirname = os.path.dirname(__file__)
