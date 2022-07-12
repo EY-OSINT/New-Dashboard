@@ -23,25 +23,27 @@ def scan_config():
     print("POST")
     if 'start_scan' in request.form:
         print("yeeeet")
-        res = requests.get('http://127.0.0.1:500/scan_config')
-        print(res.content)
-        if 'target_name' in request.form:
+        data=request.form
+        print(data)
+        if 'TargetName' in request.form:
+            print('azazzzzzzzzzzzzzzzzzzzaaaaaaa')
+            target_name=request.form['TargetName']
             print(target_name)
-            target_name=request.form['target_name']
-            if not bool(db_helper.fetch_by_name("target",target_name)):
-                target_id=db_helper.insert_new_target(target_name)
-        if request.form['scan_name'] == 'scan_name':
-            scan_name=request.form['scan_name']
-            if not bool(db_helper.fetch_scan_by_name_and_target_id(scan_name,target_name)):
-                db_helper.insert_new_scan(scan_name,target_name)
-                try:
-                    os.system("mkdir scans_folder/"+target_name+"/"+scan_name)
-                except:
-                    print("do not create the same folder twice")
-        if request.form['github_name'] == 'github_name':
-            github_name=request.form['github_name']
-        if request.form['shodan_name'] == 'shodan_name':
-            shodan_name=request.form['shodan_name']
+        #   if not bool(db_helper.fetch_by_name("target",target_name)):
+        #     target_id=db_helper.insert_new_target(target_name)
+        if 'ScanName' in request.form:
+            scan_name=request.form['ScanName']
+            #if not bool(db_helper.fetch_scan_by_name_and_target_id(scan_name,target_name)):
+                #db_helper.insert_new_scan(scan_name,target_name)
+            try:
+                print(os.getcwd())
+                os.system("mkdir -p apps/scan/scans_folder/"+target_name+"/"+scan_name)
+            except:
+                print("do not create the same folder twice")
+        if 'GithubToken' in request.form:
+            github_name=request.form['GithubToken']
+        if 'ShodanKey' in request.form:
+            shodan_name=request.form['ShodanKey']
         #function to be created IMPORTANT FETCH TARGET BY ... IMPORTANT 
         #  if not bool(db_helper.fetch_scan_by_name_and_target_id(target_name,"target_name")):
         #    db_helper.insert_new_scan(target_name,"target_name")
@@ -51,7 +53,7 @@ def scan_config():
         print(scan_name)
 
         print(github_name)
-        
+
         print(scan_name)
 
         if request.form['passive_scan']:
@@ -84,7 +86,7 @@ def scan_config():
 @login_required
 def all_scans():
 
-    return
+    return render_template('home/')
 # Errors
 
 @blueprint.errorhandler(403)

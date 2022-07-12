@@ -3,7 +3,7 @@ import datetime
 import sqlite3
 ##############################################################################################################################################################################################################################################################################################################################
 def fetch_by_name(table_name:str,name:str) -> list:
-    database = r"apps/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     query_results = conn.execute("Select * from "+table_name+" Where name =='"+name+"';").fetchall()
    # print (query_results)
@@ -16,7 +16,7 @@ def fetch_by_name(table_name:str,name:str) -> list:
     return item
 
 def fetch_all_domains_by_scan_name(scan_name:str,target_name:str) -> dict:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     scan= fetch_scan_by_name(scan_name,target_name)
     scan_id=scan[0].get('id')
