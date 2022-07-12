@@ -1,6 +1,8 @@
-
 import re 
 import iptools
+
+
+#Function that verifies input user if it was an email
 def check(email):
     regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
     free_regex = r'\b[A-Za-z0-9._%+-]+@[hotmail+\.]|[yahoo+\.]|[gmail+\.]+[A-Z|a-z]{2,}\b'
@@ -9,11 +11,13 @@ def check(email):
         if(not(re.fullmatch(free_regex, email))):
            return True
     return False
+
+#Function that devides input user  into three files     
 def get_three_files(file,target_name,scan_name):
     f=open(file).read()
-    outfile_domain = open( "scans_folder/"+target_name+"/"+scan_name+"/domain_input", "w")
-    outfile_ip = open("scans_folder/"+target_name+"/"+scan_name+"/ip_input", "w")
-    outfile_email = open("scans_folder/"+target_name+"/"+scan_name+"/email_input", "w")
+    outfile_domain = open( "scans_folder/"+target_name+"/"+scan_name+"/domain/domain_input", "w")
+    outfile_ip = open("scans_folder/"+target_name+"/"+scan_name+"/domain/ip_input", "w")
+    outfile_email = open("scans_folder/"+target_name+"/"+scan_name+"/domain/email_input", "w")
     for ligne in f.split('\n'):
         
         if not iptools.ipv4.validate_ip(ligne):
@@ -26,6 +30,7 @@ def get_three_files(file,target_name,scan_name):
         else:
             outfile_ip.write(ligne)
             x = '{"ip" :'+ '"'+ligne +'"'+ '}'    
+
 
 #FUNCTION THAT MERGES ANY NUMBER OF FILES INTO output_file concatinates them in queue.
 def merge_files(file1,file2,file3,output_file):
@@ -53,3 +58,5 @@ def remove_duplicates(file,output_file):
             tmp.add(txtLine)         
     openFile.close() 
     writeFile.close()  
+
+           

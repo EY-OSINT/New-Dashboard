@@ -10,12 +10,12 @@ from apps import database as db_helper
 def screenshots(scan_name):
     dir = os.getcwd()
     print(dir)
-    os.system('mkdir app/static/screenshots')
-    os.system('cp app/templates/pages/aquatone_urls/'+scan_name+'/screenshots/* app/static/screenshots/')
-    f=open('app/templates/pages/aquatone_urls/'+scan_name+'/aquatone_report.html','r').read()
+    os.system('mkdir apps/static/screenshots')
+    os.system('cp apps/templates/home/aquatone_urls/'+scan_name+'/screenshots/* apps/static/screenshots/')
+    f=open('apps/templates/home/aquatone_urls/'+scan_name+'/aquatone_report.html','r').read()
     f=f.replace('"screenshotPath":"','"screenshotPath":"/static/')
-    f2=open('app/templates/pages/aquatone_urls/'+scan_name+'/aquatone_report.html','w')
+    f2=open('apps/templates/home/aquatone_urls/'+scan_name+'/aquatone_report.html','w')
     f2.write(f)
-    return render_template('pages/screenshots.html',scan_name=scan_name)
+    return render_template('home/screenshots.html',scan_name=scan_name)
 
         

@@ -2,6 +2,7 @@ from distutils.command.config import config
 from re import X
 from flask import render_template, redirect, request, url_for
 from fileinput      import filename
+import requests
 from wtforms        import Form
 import datetime
 from . import subdomain
@@ -22,7 +23,10 @@ def scan_config():
     print("POST")
     if 'start_scan' in request.form:
         print("yeeeet")
-        if request.form['target_name'] == 'target_name':
+        res = requests.get('http://127.0.0.1:500/scan_config')
+        print(res.content)
+        if 'target_name' in request.form:
+            print(target_name)
             target_name=request.form['target_name']
             if not bool(db_helper.fetch_by_name("target",target_name)):
                 target_id=db_helper.insert_new_target(target_name)
