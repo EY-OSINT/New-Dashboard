@@ -8,7 +8,8 @@
 
 
 <div class="row">
-    <form method="post">
+    <form method="post" action="" class="mt-4">
+        {{ form.hidden_tag() }}
         <div class="col-12 col-xl-12 mt-5">
             <div class="card card-body border-0 shadow mb-4">
 
@@ -17,14 +18,14 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div>
-                            <label for="target_name">Target Name</label>
-                            <input class="form-control" id="target_name" type="text" placeholder="Enter The target name" name="target_name" required>
+                            <label for="target_name">Target Name</label> {{ form.TargetName(placeholder="Target Name", class="form-control") }}
+
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <div>
-                            <label for="scan_name">Scan Name</label>
-                            <input class="form-control" id="scan_name" type="text" placeholder="Enter the scan name" name="scan_name" required>
+                            <label for="scan_name">Scan Name</label> {{ form.ScanName(placeholder="Scan Name", class="form-control") }}
+
                         </div>
                     </div>
                 </div>
@@ -32,14 +33,13 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
-                            <label>Github Token</label>
-                            <input class="form-control" id="github" type="text" placeholder="Enter your github token" name="github_name" required>
+                            <label>Github Token</label> {{ form.GithubToken(placeholder="Github Token", class="form-control") }}
+
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <div class="form-group">
-                            <label for="shodan">Shodan API Key</label>
-                            <input class="form-control" id="shodan" type="text" placeholder="Enter your shodan API Key" name="shodan_name" required>
+                            <label for="shodan">Shodan API Key</label> {{ form.ShodanKey(placeholder="Shodan Key", class="form-control") }}
                         </div>
                     </div>
                 </div>
@@ -358,9 +358,24 @@
                 <fieldset>
                     <legend class="h5">Choose a Wordlist </legend>
                     <div class="center ">
-                        <button class="btn w-80 btn-outline-primary animate-down-2 mb-4" type="button">small.txt</button>
-                        <button class="btn w-60 btn  btn-outline-primary animate-down-2 mb-4" type="button">common.txt</button>
-                        <button class="btn w-45 btn btn-outline-primary animate-down-2 mb-4" type="button">big.txt</button>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="files_containing_passwords  ">
+                            <label class="form-check-label" for="exampleRadios10">
+                                                    small.txt
+                                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="files_containing_passwords  ">
+                            <label class="form-check-label" for="exampleRadios10">
+                                                    common.txt
+                                                </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios10" value="files_containing_passwords  ">
+                            <label class="form-check-label" for="exampleRadios10">
+                                                    big.txt
+                                                </label>
+                        </div>
                     </div>
                     <label for="formFile" class="form-label">OR</label>
 
