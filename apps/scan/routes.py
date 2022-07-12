@@ -18,55 +18,60 @@ from apps.scan.forms import ScanForm
 def scan_config():
     scan_form=ScanForm(request.form)
     #Saving user's form input after user pushed start scan button
-    if request.method=='POST':
-        print("POST")
-        if request.form['start_scan'] == 'start_scan':
-            print("yeeeet")
-            if request.form['target_name'] == 'target_name':
-                target_name=request.form['target_name']
-                if not bool(db_helper.fetch_by_name("target",target_name)):
-                    target_id=db_helper.insert_new_target(target_name)
-            if request.form['scan_name']== 'scan_name':
-                scan_name=request.form['scan_name']
-                if not bool(db_helper.fetch_scan_by_name_and_target_id(scan_name,target_name)):
-                   db_helper.insert_new_scan(scan_name,target_name)
-                   try:
-                       os.system("mkdir scans_folder/"+target_name+"/"+scan_name)
-                   except:
-                       print("do not create the same folder twice")
-            if request.form['github_name'] == 'github_name':
-                github_name=request.form['github_name']
-            if request.form['shodan_name'] == 'shodan_name':
-                shodan_name=request.form['shodan_name']
-            #function to be created IMPORTANT FETCH TARGET BY ... IMPORTANT 
-          #  if not bool(db_helper.fetch_scan_by_name_and_target_id(target_name,"target_name")):
-           #    db_helper.insert_new_scan(target_name,"target_name")
-            print(target_name)
-            print(scan_name)
-            print(github_name)
-            print(scan_name)
-            if request.form['passive_scan']:
-                print("passive")
-                subdomain.Passive(target_name,scan_name)
-            if request.form['active_scan']:
-                print("active")
-                subdomain.Active(target_name,scan_name)
-            if request.form['custom_scan']:
-                print("elimiante error")
-                if request.form['Custom_Domain']:
-                    if request.form.get('checkbox')!='Custom_Domain':
-                        print('ee')
-                        print('ENTER YOUR OWN LIST')
-                    elif request.form.get('checkbox')=='Custom_Domain':
-                        print('whois module')
-                        print('validation')
-                    f=request.files['input']
-                    f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
-                    print("custom Domain Module NOT CHECKED file must be uploaded")
-                    if request.form.get('checkbox') == 'Custom_Subdomain':
-                        subdomain.Custom(target_name,scan_name)
-                    if request.form.get('checkbox')=='Custom_Directory':
-                        print('Custom_dir')
+    
+    print("POST")
+    if 'start_scan' in request.form:
+        print("yeeeet")
+        if request.form['target_name'] == 'target_name':
+            target_name=request.form['target_name']
+            if not bool(db_helper.fetch_by_name("target",target_name)):
+                target_id=db_helper.insert_new_target(target_name)
+        if request.form['scan_name'] == 'scan_name':
+            scan_name=request.form['scan_name']
+            if not bool(db_helper.fetch_scan_by_name_and_target_id(scan_name,target_name)):
+                db_helper.insert_new_scan(scan_name,target_name)
+                try:
+                    os.system("mkdir scans_folder/"+target_name+"/"+scan_name)
+                except:
+                    print("do not create the same folder twice")
+        if request.form['github_name'] == 'github_name':
+            github_name=request.form['github_name']
+        if request.form['shodan_name'] == 'shodan_name':
+            shodan_name=request.form['shodan_name']
+        #function to be created IMPORTANT FETCH TARGET BY ... IMPORTANT 
+        #  if not bool(db_helper.fetch_scan_by_name_and_target_id(target_name,"target_name")):
+        #    db_helper.insert_new_scan(target_name,"target_name")
+
+        print(target_name)
+
+        print(scan_name)
+
+        print(github_name)
+        
+        print(scan_name)
+
+        if request.form['passive_scan']:
+            print("passive")
+            subdomain.Passive(target_name,scan_name)
+        if request.form['active_scan']:
+            print("active")
+            subdomain.Active(target_name,scan_name)
+        if request.form['custom_scan']:
+            print("elimiante error")
+            if request.form['Custom_Domain']:
+                if request.form.get('checkbox')!='Custom_Domain':
+                    print('ee')
+                    print('ENTER YOUR OWN LIST')
+                elif request.form.get('checkbox')=='Custom_Domain':
+                    print('whois module')
+                    print('validation')
+                f=request.files['input']
+                f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
+                print("custom Domain Module NOT CHECKED file must be uploaded")
+                if request.form.get('checkbox') == 'Custom_Subdomain':
+                    subdomain.Custom(target_name,scan_name)
+                if request.form.get('checkbox')=='Custom_Directory':
+                    print('Custom_dir')
         return render_template(url_for('scan_blueprint.all_scans',form=scan_form))
     return render_template('home/conf-scan.html',segment='conf-scan',form=scan_form)
 
@@ -77,8 +82,6 @@ def all_scans():
 
     return
 # Errors
-
-
 
 @blueprint.errorhandler(403)
 def access_forbidden(error):
@@ -93,8 +96,6 @@ def not_found_error(error):
 @blueprint.errorhandler(500)
 def internal_error(error):
     return render_template('home/page-500.html'), 500
-
-
 """
    scans= db_helper.fetch_scan_by_name("target_name") 
    if request.method == 'POST' and not(str(request.get_data()) == "b'add='") :
