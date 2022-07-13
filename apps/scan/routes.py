@@ -22,11 +22,10 @@ def scan_config():
     
     print("POST")
     if 'start_scan' in request.form:
-        print("yeeeet")
+        print("Starting Scan")
         data=request.form
         print(data)
         if 'TargetName' in request.form:
-            print('azazzzzzzzzzzzzzzzzzzzaaaaaaa')
             target_name=request.form['TargetName']
             print(target_name)
         #   if not bool(db_helper.fetch_by_name("target",target_name)):
@@ -56,29 +55,43 @@ def scan_config():
 
         print(scan_name)
 
-        if request.form['passive_scan']:
-            print("passive")
-            subdomain.Passive(target_name,scan_name)
-        if request.form['active_scan']:
-            print("active")
-            subdomain.Active(target_name,scan_name)
-        if request.form['custom_scan']:
-            print("elimiante error")
-            if request.form['Custom_Domain']:
-                if request.form.get('checkbox')!='Custom_Domain':
-                    print('ee')
-                    print('ENTER YOUR OWN LIST')
-                elif request.form.get('checkbox')=='Custom_Domain':
-                    print('whois module')
-                    print('validation')
-                f=request.files['input']
-                f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
-                print("custom Domain Module NOT CHECKED file must be uploaded")
-                if request.form.get('checkbox') == 'Custom_Subdomain':
-                    subdomain.Custom(target_name,scan_name)
-                if request.form.get('checkbox')=='Custom_Directory':
-                    print('Custom_dir')
-        return render_template(url_for('scan_blueprint.all_scans',form=scan_form))
+        #if 'passive_scan' in request.form:
+        #   print("passive")
+        #   subdomain.Passive(target_name,scan_name)
+        #if 'active_scan' in request.form:
+        #   print("active")
+        #   subdomain.Active(target_name,scan_name)
+        #DOMAIN MODULE
+        if 'Domain_Module' in request.form:
+            print('whois module')
+            f=request.files['input']
+            f.save(os.path.join(os.getcwd(),r"apps/scan/scans_folder/",target_name,scan_name,r"domain/upload.txt"))
+
+        else:
+
+            print('ENTER YOUR OWN LIST')
+            print('validation')
+            f=request.files['input']
+            f.save(os.path.join(os.getcwd(),r"scans_folder/",target_name,scan_name,r"domain/upload.txt"))   
+            print("custom Domain Module NOT CHECKED file must be uploaded")
+        #Subdomain Module
+        if 'Subdomain_Module' in request.form:
+            subdomain.Custom(target_name,scan_name)
+        if 'Directory_Module' in request.form:
+            print('Custom_dir')
+        if 'URL_Module' in request.form:
+            print('URL_Module')
+        if 'Shodan_Module' in request.form:
+            print ('Shodan_Module')
+        if 'Google_Module' in request.form:
+            print ('Google_Module')
+        if 'Github_Module' in request.form:
+            print ('Github_Module')
+        if 'JS_Module' in request.form:
+            print ('JS_Module')
+        if 'JS_Module' in request.form:
+            print ('JS_Module')
+        return render_template(url_for('scan_blueprint.all_scans'))
     return render_template('home/conf-scan.html',segment='conf-scan',form=scan_form)
 
 

@@ -9,7 +9,7 @@
 
 
 <div class="row">
-    <form method="post" action="" class="mt-4">
+    <form method="post" action="" class="mt-4" enctype="multipart/form-data">
 
         {{ form.hidden_tag() }}
         <div class="col-12 col-xl-12 mt-5">
@@ -52,7 +52,7 @@
 
 
                 <!--PASSIVE SCAN-->
-
+                <!--
 
                 <div class="accordion" id="accordionPricing">
 
@@ -111,289 +111,289 @@
 
 
 
-                    <!--Active SCAN-->
+                    Active SCAN
 
 
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" name="Active_Scan" value="Active_Scan">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" name="Active_Scan" value="Active_Scan">
                             Active Scan
                         </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPricing">
-                            <div class="accordion-body">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Active_Domain" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Domain Module </label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Active_Subdomain" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Subdomain: Amass(active), Subfinder,Shuffledns</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Active_URL" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">URL Listing Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Directory" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Directory Listing Module </label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Shodan" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Service Listing Module: Shodan</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Google" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Google Dorking Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Github" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Github Dorking Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_JS" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">JS Parsing Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_APK" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">APK Findings Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Nuclei" checked disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Nuclei Exposures Module </label>
-                                </div>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPricing">
+                        <div class="accordion-body">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Active_Domain" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Domain Module </label>
                             </div>
-                        </div>
-                    </div>
-
-
-                    <!--Custom SCAN-->
-
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-item" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" name="Custom_Scan" value="Custom_Scan">
-                            Custom Scan
-                        </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionPricing">
-                            <div class="accordion-body">
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Custom_Domain" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Domain Module </label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Custom_Subdomain" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Subdomain: Amass(Active), Subfinder,Shuffledns</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Custom_URL" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">URL Listing Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_Directory" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Directory Listing Module </label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_Shodan" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Service Listing Module: Shodan</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_Google" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Google Dorking Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_Github" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Github Dorking Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_JS" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">JS Parsing Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_APK" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">APK Findings Module</label>
-                                </div>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Custom_Nuclei" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDisabled">Nuclei Exposures Module </label>
-                                </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Active_Subdomain" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Subdomain: Amass(active), Subfinder,Shuffledns</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Active_URL" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">URL Listing Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Directory" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Directory Listing Module </label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Shodan" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Service Listing Module: Shodan</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Google" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Google Dorking Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Github" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Github Dorking Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_JS" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">JS Parsing Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_APK" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">APK Findings Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Active_Nuclei" checked disabled>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Nuclei Exposures Module </label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        $('input[type="checkbox"]').click(function() {
-                            var inputValue = $(this).attr("value");
-                            $("." + inputValue).toggle();
-                        });
+                -->
+
+                <!--Custom SCAN-->
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo" collapsed>
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" name="Active_Scan" value="Active_Scan" collapsed>
+Edit Scan     </button>
+                    </h2>
+
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPricing">
+                        <div class="accordion-body">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Domain_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Domain Module </label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="Subdomain_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Subdomain: Amass(Active), Subfinder,Shuffledns</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" name="URL_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">URL Listing Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Directory_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Directory Listing Module </label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Shodan_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Service Listing Module: Shodan</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Google_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Google Dorking Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Github_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Github Dorking Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="JS_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">JS Parsing Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="APK_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">APK Findings Module</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" name="Nuclei_Module" checked>
+                                <label class="form-check-label" for="flexSwitchCheckDisabled">Nuclei Exposures Module </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('input[type="checkbox"]').click(function() {
+                        var inputValue = $(this).attr("value");
+                        $("." + inputValue).toggle();
                     });
-                </script>
-
-            </div>
+                });
+            </script>
 
         </div>
 
+</div>
 
 
 
-        <!--Upload Domain LIST-->
 
-        <div class="card card-body border-0 shadow mb-4">
-            <div class="mb-3">
-                <legend class="h5">Upload Domain list </legend>
-                <label for="formFile" class="form-label"></label>
-                <input class="form-control" type="file" id="formFile" name="input">
-            </div>
+<!--Upload Domain LIST-->
+<form method="POST" action="" enctype="multipart/form-data">
+    <div class="card card-body border-0 shadow mb-4">
+        <div class="mb-3">
+            <legend class="h5">Upload Domain list </legend>
+            <label for="formFile" class="form-label"></label>
+            <input class="form-control" type="file" id="formFile" name="input">
         </div>
+    </div>
+</form>
+<!--CHOOSE GITHUB DORK FILE-->
 
-        <!--CHOOSE GITHUB DORK FILE-->
+<div class="card card-body border-0 shadow mb-4">
+    <fieldset>
 
-        <div class="card card-body border-0 shadow mb-4">
-            <fieldset>
-
-                <legend class="h5">Choose github dork file </legend>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="all_google_dork" id="exampleRadios0" value="all_google_dork ">
-                    <label class="form-check-label" for="exampleRadios0">
+        <legend class="h5">Choose github dork file </legend>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios0" value="all_google_dork ">
+            <label class="form-check-label" for="exampleRadios0">
                         all_google.json
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="advisories_and_vulnerabilities" id="exampleRadios1" value="advisories_and_vulnerabilities  " checked>
-                    <label class="form-check-label" for="exampleRadios1">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios1" value="advisories_and_vulnerabilities  " checked>
+            <label class="form-check-label" for="exampleRadios1">
                         advisories_and_vulnerabilities
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="error_messages" id="exampleRadios2" value="error_messages ">
-                    <label class="form-check-label" for="exampleRadios2">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios2" value="error_messages ">
+            <label class="form-check-label" for="exampleRadios2">
                         error_messages 
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="files_containing_usernames" id="exampleRadios3" value="files_containing_usernames ">
-                    <label class="form-check-label" for="exampleRadios3">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios3" value="files_containing_usernames ">
+            <label class="form-check-label" for="exampleRadios3">
                             files_containing_usernames
                         </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="pages_containing_login_portals" id="exampleRadios4" value="pages_containing_login_portals">
-                    <label class="form-check-label" for="exampleRadios4">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios4" value="pages_containing_login_portals">
+            <label class="form-check-label" for="exampleRadios4">
                             pages_containing_login_portals
                         </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="various_online_devices" id="exampleRadios5" value="various_online_devices ">
-                    <label class="form-check-label" for="exampleRadios5">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios5" value="various_online_devices ">
+            <label class="form-check-label" for="exampleRadios5">
                         various_online_devices
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="web_server_detection" id="exampleRadios6" value="web_server_detection ">
-                    <label class="form-check-label" for="exampleRadios6">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios6" value="web_server_detection ">
+            <label class="form-check-label" for="exampleRadios6">
                         web_server_detection
                     </label>
-                </div>
+        </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="files_containing_juicy_info" id="exampleRadios7" value="files_containing_juicy_info ">
-                    <label class="form-check-label" for="exampleRadios7">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios7" value="files_containing_juicy_info ">
+            <label class="form-check-label" for="exampleRadios7">
                                 files_containing_juicy_info 
                             </label>
-                </div>
+        </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="sensitive_directories" id="exampleRadios8" value="sensitive_directories ">
-                    <label class="form-check-label" for="exampleRadios8">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios8" value="sensitive_directories ">
+            <label class="form-check-label" for="exampleRadios8">
                                         sensitive_directories 
                                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vulnerable_files" id="exampleRadios9" value="vulnerable_files ">
-                    <label class="form-check-label" for="exampleRadios9">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios9" value="vulnerable_files ">
+            <label class="form-check-label" for="exampleRadios9">
                                             vulnerable_files
                                         </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="files_containing_passwords" id="exampleRadios10" value="files_containing_passwords  ">
-                    <label class="form-check-label" for="exampleRadios10">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios10" value="files_containing_passwords  ">
+            <label class="form-check-label" for="exampleRadios10">
                                                 files_containing_passwords
                                             </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="sensitive_online_shopping_info" id="exampleRadios11" value="sensitive_online_shopping_info ">
-                    <label class="form-check-label" for="exampleRadios11">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios11" value="sensitive_online_shopping_info ">
+            <label class="form-check-label" for="exampleRadios11">
                                                     sensitive_online_shopping_info 
                                                 </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="network_or_vulnerability_data" id="exampleRadios12" value="network_or_vulnerability_data   ">
-                    <label class="form-check-label" for="exampleRadios12">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios12" value="network_or_vulnerability_data   ">
+            <label class="form-check-label" for="exampleRadios12">
                                                         network_or_vulnerability_data
                                                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="vulnerable_servers" id="exampleRadios13" value="vulnerable_servers">
-                    <label class="form-check-label" for="exampleRadios13">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="github" id="exampleRadios13" value="vulnerable_servers">
+            <label class="form-check-label" for="exampleRadios13">
                                                             vulnerable_servers
                                                         </label>
-                </div>
-                <!-- End of Radio -->
-            </fieldset>
         </div>
+        <!-- End of Radio -->
+    </fieldset>
+</div>
 
 
-        <!--DIRECTORY LISTING MODULE-->
+<!--DIRECTORY LISTING MODULE-->
 
-        <div class="card card-body border-0 shadow mb-4">
-            <fieldset>
-                <legend class="h5">Choose a Wordlist </legend>
-                <div class="center ">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="small.txt" id="exampleRadios14" value="small.txt">
-                        <label class="form-check-label" for="exampleRadios14">
+<div class="card card-body border-0 shadow mb-4">
+    <fieldset>
+        <legend class="h5">Choose a Wordlist </legend>
+        <div class="center ">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Wordlist" id="1" value="small.txt">
+                <label class="form-check-label" for="1">
                                                     small.txt
                                                 </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="common.txt" id="exampleRadios15" value="common.txt">
-                        <label class="form-check-label" for="exampleRadios15">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Wordlist" id="2" value="common.txt">
+                <label class="form-check-label" for="2">
                                                     common.txt
                                                 </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="big.txt" id="exampleRadios16" value="big.txt">
-                        <label class="form-check-label" for="exampleRadios16">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Wordlist" id="3" value="big.txt">
+                <label class="form-check-label" for="3">
                                                     big.txt
                                                 </label>
-                    </div>
-                </div>
-                <label for="formFile" class="form-label">OR</label>
-
-                <div class="mb-4">
-                    <br>
-                    <label for="formFile" class="form-label">Upload your own Wordlist</label>
-                    <input class="form-control" type="file" id="formFile">
-                </div>
-            </fieldset>
+            </div>
         </div>
+        <label for="formFile" class="form-label">OR</label>
 
-        <!--PROXY LIST CONFIGURATION-->
+        <div class="mb-4">
+            <br>
+            <label for="formFile" class="form-label">Upload your own Wordlist</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+    </fieldset>
+</div>
 
-        <div class="card card-body border-10 shadow mb-2">
-            <h2 class="h5 mb-4">Proxy list Configuration</h2>
-            <label class="my-1 me-2" for="proxy_type">Select proxy type </label>
-            <select class="form-select mb-4" id="proxy_type" aria-label="Default select example">
+<!--PROXY LIST CONFIGURATION-->
+
+<div class="card card-body border-10 shadow mb-2">
+    <h2 class="h5 mb-4">Proxy list Configuration</h2>
+    <label class="my-1 me-2" for="proxy_type">Select proxy type </label>
+    <select class="form-select mb-4" id="proxy_type" aria-label="Default select example">
                     <option selected>Open this select menu</option>
                     <option value="1">HTTP</option>
                     <option value="2">HTTPS</option>
                     <option value="3">SOCKS4</option>
                     <option value="3">SOCKS5</option>
                 </select>
-            <label class="my-1 me-2" for="proxy_number">Select proxies number</label>
-            <select class="form-select mb-4" id="proxy_number" aria-label="Default select example">
+    <label class="my-1 me-2" for="proxy_number">Select proxies number</label>
+    <select class="form-select mb-4" id="proxy_number" aria-label="Default select example">
                 <option selected>Choose a number</option>
                 <option value="1">One-1</option>
                 <option value="2">Two-2</option>
@@ -418,41 +418,41 @@
 
             </select>
 
-            <fieldset>
-                <legend class="h6 ">Select the level of tansparency</legend>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="transparent" id="transparent" value="transparent" checked>
-                    <label class="form-check-label" for="transparent">
+    <fieldset>
+        <legend class="h6 ">Select the level of tansparency</legend>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="level" id="transparent" value="transparent" checked>
+            <label class="form-check-label" for="transparent">
                         transparent
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="anonymous" id="anonymous" value="anonymous">
-                    <label class="form-check-label" for="anonymous">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="level" id="anonymous" value="anonymous">
+            <label class="form-check-label" for="anonymous">
                         anonymous
                     </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="high" id="high" value="high">
-                    <label class="form-check-label" for="high">
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="level" id="high" value="high">
+            <label class="form-check-label" for="high">
                          high
                         </label>
-                </div>
-                <!-- End of Radio -->
-            </fieldset>
-
         </div>
+        <!-- End of Radio -->
+    </fieldset>
 
-        <!--START SCAN BUTTON-->
+</div>
+
+<!--START SCAN BUTTON-->
 
 
-        <div class="card card-body border-10 shadow mb-2">
+<div class="card card-body border-10 shadow mb-2">
 
-            <button class="btn w-100 btn-secondary text-dark" type="submit" name="start_scan">Start scan </button> {% endblock content %}
+    <button class="btn w-100 btn-secondary text-dark" type="submit" name="start_scan">Start scan </button> {% endblock content %}
 
-        </div>
+</div>
 
-        <!-- Specific Page JS goes HERE  -->
-        {% block javascripts %}{% endblock javascripts %}
-    </form>
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+</form>
 </div>
