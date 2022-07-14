@@ -26,6 +26,7 @@ def scan_config():
         data=request.form
         print(data)
         if 'TargetName' in request.form:
+            print('TARGET')
             target_name=request.form['TargetName']
             print(target_name)
         #   if not bool(db_helper.fetch_by_name("target",target_name)):
@@ -77,6 +78,7 @@ def scan_config():
         #Subdomain Module
         if 'Subdomain_Module' in request.form:
             subdomain.Custom(target_name,scan_name)
+        #Directory Listing Module
         if 'Directory_Module' in request.form:
             print('Custom_dir')
         if 'URL_Module' in request.form:
