@@ -7,7 +7,7 @@ import requests
 import json
 from typing import List
 from bs4 import BeautifulSoup as bs4
-import database as db_helper
+from .. import  database as db
 
 import re
  
@@ -20,11 +20,6 @@ def check(email):
            return True
     return False
 
-#from app import app
-dirname = os.path.dirname(__file__)
-dir = os.getcwd()
-files = os.listdir('scans_folder/domain')
-file = os.path.join(dir, r"scans_folder/domain/upload.txt")
 
 #function puts domains into database
 
@@ -52,7 +47,7 @@ def main(keyjson):
                 print()
 
             else:
-                db_helper.insert_new_domain(value)
+                db.insert_new_domain(value)
                 
 
     except:
@@ -111,7 +106,7 @@ def main_ip(keyjson):
                 
         else:
             l.append(value)
-            db_helper.insert_new_domain(value)
+            db.insert_new_domain(value)
     
     #except:
         #print()
@@ -119,7 +114,12 @@ def main_ip(keyjson):
         
     return l
    
-def domains():
+def domains(target_name,scan_name):
+    dirname = os.path.dirname(__file__)
+    dir = os.getcwd()
+    files = os.listdir('scans_folder/domain')
+    file = os.path.join(dir, r"scans_folder/"+target_name+"/"+scan_name+"domain/upload.txt")
+
     try:    
         
         f=open(file).read() 

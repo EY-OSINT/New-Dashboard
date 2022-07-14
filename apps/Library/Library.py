@@ -1,6 +1,6 @@
 import re 
 import iptools
-
+import os 
 
 #Function that verifies input user if it was an email
 def check(email):
@@ -59,4 +59,7 @@ def remove_duplicates(file,output_file):
     openFile.close() 
     writeFile.close()  
 
+def create_dir_under_scans_folder(module_name, target_name, scan_name):
+    print(os.getcwd())
+    os.mkdir(os.getcwd(),r"apps/scan/scans_folder/",module_name,target_name,scan_name)
            

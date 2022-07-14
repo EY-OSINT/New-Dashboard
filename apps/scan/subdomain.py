@@ -60,7 +60,7 @@ def amass(type:str,target_name,scan_name):
     strtype='-'+type
     file = os.path.join(dir,r"scans_folder",target_name,scan_name,r"domain/domains.txt")
     amass_output = os.path.join(dir,r"scans_folder",target_name,scan_name,r"subdomain/amass_output.txt")
-    subprocess.run('amass', 'enum',strtype,'-df',file,'-o',amass_output)
+    subprocess.Popen(['amass', 'enum',strtype,'-df',file,'-o',amass_output])
     return
    # result= subprocess.run ([sys.executable,"-c","amass enum -active -d"+sub+ "-o amass_output.txt"])
    # else :
@@ -71,12 +71,12 @@ def amass(type:str,target_name,scan_name):
 def subfinder(target_name,scan_name): 
     file = os.path.join(dir,r"scans_folder",target_name,scan_name,r"domain/domains.txt")
     subfinder_output = os.path.join(dir,target_name,scan_name,r"subdomain/subfinder_output.txt")
-    subprocess.run('subfinder', '-dL', file, '-all-silent','-o',subfinder_output)
+    subprocess.Popen(['subfinder', '-dL', file, '-all-silent','-o',subfinder_output])
     return 
 def shuffledns(target_name,scan_name): 
     file = os.path.join(dir,r"scans_folder",target_name,scan_name,r"domain/domains.txt")
     shuffledns_output = os.path.join(dir,target_name,scan_name,r"subdomain/shuffledns_output.txt")
-    subprocess.run('shuffledns','-r',file,'-o',shuffledns_output)
+    subprocess.Popen(['shuffledns','-r',file,'-o',shuffledns_output])
     return
 
 ###################################################################          PASSIVE     FUNCTION        ###############################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
@@ -123,7 +123,7 @@ def Custom(target_name,scan_name):
     subfinder_output = os.path.join(dir,r"scans_folder",target_name,scan_name,r"subdomain/subfinder_output.txt")
     subdomain_output = os.path.join(dir,target_name,scan_name,r"subdomain/subdomain_output.txt")
 
-    amass("passive",target_name,scan_name)
+    amass("active",target_name,scan_name)
     shuffledns(target_name,scan_name)
     subfinder(target_name,scan_name)
 

@@ -30,7 +30,7 @@ def aquatone(scan_name):
     
     return redirect(url_for('screenshots',scan_name=scan_name))
    
-@app.route("/aquatone_urls/<scan_name>/", methods=['GET'])
+#@app.route("/aquatone_urls/<scan_name>/", methods=['GET'])
 def report(scan_name):
     path='home/aquatone_urls/'+scan_name+'/aquatone_report.html'
     print(path)
