@@ -64,6 +64,11 @@ def scan_config():
         #   subdomain.Active(target_name,scan_name)
         #DOMAIN MODULE
         if 'Domain_Module' in request.form:
+            try:
+                print(os.getcwd())
+                os.system("mkdir -p apps/scan/scans_folder/"+target_name+"/"+scan_name+"/domain")
+            except:
+                print("do not create the same folder twice")            
             print('whois module')
             f=request.files['input']
             f.save(os.path.join(os.getcwd(),r"apps/scan/scans_folder/",target_name,scan_name,r"domain/upload.txt"))
@@ -77,6 +82,11 @@ def scan_config():
             print("custom Domain Module NOT CHECKED file must be uploaded")
         #Subdomain Module
         if 'Subdomain_Module' in request.form:
+            try:
+                print(os.getcwd())
+                os.system("mkdir -p apps/scan/scans_folder/"+target_name+"/"+scan_name+"/subdomain")
+            except:
+                print("do not create the same folder twice")     
             subdomain.Custom(target_name,scan_name)
         #Directory Listing Module
         if 'Directory_Module' in request.form:
