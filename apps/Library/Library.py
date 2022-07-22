@@ -60,6 +60,8 @@ def remove_duplicates(file,output_file):
     writeFile.close()  
 
 def create_dir_under_scans_folder(module_name, target_name, scan_name):
-    print(os.getcwd())
-    os.mkdir(os.getcwd(),r"apps/scan/scans_folder/",module_name,target_name,scan_name)
+   
+    path_dir=os.getcwd()+"/apps/scan/scans_folder/"+target_name+"/"+scan_name+"/"+module_name
+    print(path_dir)
+    os.mkdir(path_dir)
            

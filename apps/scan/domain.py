@@ -23,7 +23,7 @@ def check(email):
 
 #function puts domains into database
 
-def main(keyjson):
+def main(keyjson,scan_id):
     
     key = json.loads(keyjson)
     link = "https://viewdns.info/reversewhois/?q=" + str(key['domain'])
@@ -47,7 +47,7 @@ def main(keyjson):
                 print()
 
             else:
-                db.insert_new_domain(value)
+                db.insert_new_domain(value,scan_id)
                 
 
     except:
@@ -57,7 +57,7 @@ def main(keyjson):
 
 #function puts domains related to ip into database
 
-def main_ip(keyjson):
+def main_ip(keyjson,scan_id):
    
     print(type(keyjson))
     key = json.loads(keyjson)
@@ -106,7 +106,7 @@ def main_ip(keyjson):
                 
         else:
             l.append(value)
-            db.insert_new_domain(value)
+            db.insert_new_domain(value,scan_id)
     
     #except:
         #print()
@@ -117,29 +117,32 @@ def main_ip(keyjson):
 def domains(target_name,scan_name):
     dirname = os.path.dirname(__file__)
     dir = os.getcwd()
-    files = os.listdir('scans_folder/domain')
-    file = os.path.join(dir, r"scans_folder/"+target_name+"/"+scan_name+"domain/upload.txt")
+    file = os.path.join(dir, r"apps/scan/scans_folder/"+target_name+"/"+scan_name+"/domain/upload.txt")
 
-    try:    
+    target=db.fetch_by_name('target',target_name)
+    target_id=target.get('id')
+    scan=db.fetch_by_name_and_id("scan",scan_name,"target_id",target_id)
+    scan_id=scan.get('id')
+    #try:    
         
-        f=open(file).read() 
-        for ligne in f.split('\n'):
-             x = '{"domain" :'+ '"'+ligne +'"'+ '}'
-             if not iptools.ipv4.validate_ip(ligne):
-                 if(check(ligne)):
+    f=open(file).read() 
+    for ligne in f.split('\n'):
+            x = '{"domain" :'+ '"'+ligne +'"'+ '}'
+            if not iptools.ipv4.validate_ip(ligne):
+                if(check(ligne)):
                     domain_from_mail=ligne.split('@')[1]
                     x = '{"domain" :'+ '"'+domain_from_mail +'"'+ '}'
-                 main(x)
-             else:
-                 x = '{"ip" :'+ '"'+ligne +'"'+ '}'
-                 l=main_ip(x)
+                main(x,scan_id)
+            else:
+                x = '{"ip" :'+ '"'+ligne +'"'+ '}'
+                l=main_ip(x,scan_id)
 
-                 for line in l:
+                for line in l:
                     x = '{"domain" :'+ '"'+line +'"'+ '}'
-                    main(x)
+                    main(x,scan_id)
                    
-    except:
-	    print("you have been banned  ")
+    #except:
+	 #   print("you have been banned  ")
 
 
 

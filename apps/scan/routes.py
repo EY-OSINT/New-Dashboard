@@ -1,3 +1,4 @@
+from ctypes import LibraryLoader
 from distutils.command.config import config
 from re import X
 from flask import render_template, redirect, request, url_for
@@ -14,9 +15,9 @@ from apps.scan import blueprint
 from flask_login import login_required 
 from werkzeug.utils import secure_filename
 import os
-import apps.database  as db_helper
+import apps.database  as db
 from flask import flash
-from .. import Library
+from ..Library import Library
 from apps.scan.forms import ScanForm
 @blueprint.route('/scan_config',methods=["GET","POST"])
 @login_required
@@ -30,14 +31,15 @@ def scan_config():
         data=request.form
         print(data)
         if 'TargetName' in request.form:
+            print('TARGET')
             target_name=request.form['TargetName']
             print(target_name)
-        #   if not bool(db_helper.fetch_by_name("target",target_name)):
-        #     target_id=db_helper.insert_new_target(target_name)
+        if not bool(db.fetch_by_name("target",target_name)):
+           target_id=db.insert_new_target(target_name)
         if 'ScanName' in request.form:
             scan_name=request.form['ScanName']
-            #if not bool(db_helper.fetch_scan_by_name_and_target_id(scan_name,target_name)):
-                #db_helper.insert_new_scan(scan_name,target_name)
+            if not bool(db.fetch_scan_by_name_and_target_id(scan_name,target_name)):
+                scan_id= db.insert_new_scan(scan_name,target_name)
             try:
                 print(os.getcwd())
                 os.system("mkdir -p apps/scan/scans_folder/"+target_name+"/"+scan_name)
@@ -48,8 +50,8 @@ def scan_config():
         if 'ShodanKey' in request.form:
             shodan_name=request.form['ShodanKey']
         #function to be created IMPORTANT FETCH TARGET BY ... IMPORTANT 
-        #  if not bool(db_helper.fetch_scan_by_name_and_target_id(target_name,"target_name")):
-        #    db_helper.insert_new_scan(target_name,"target_name")
+        #  if not bool(db.fetch_scan_by_name_and_target_id(target_name,"target_name")):
+        #    db.insert_new_scan(target_name,"target_name")
 
         print(target_name)
 
@@ -84,6 +86,7 @@ def scan_config():
         #Subdomain Module
         if 'Subdomain_Module' in request.form:
             subdomain.Custom(target_name,scan_name)
+        #Directory Listing Module
         if 'Directory_Module' in request.form:
             print('Custom_dir')
         if 'URL_Module' in request.form:
@@ -123,14 +126,14 @@ def not_found_error(error):
 def internal_error(error):
     return render_template('home/page-500.html'), 500
 """
-   scans= db_helper.fetch_scan_by_name("target_name") 
+   scans= db.fetch_scan_by_name("target_name") 
    if request.method == 'POST' and not(str(request.get_data()) == "b'add='") :
          data = request.get_data()
          name=(str(data).split('=')[1])
          name_clean=name.split('&')[0]
 
-         if not bool(db_helper.fetch_scan_by_name_and_target_id(name_clean,"target_name")):
-               db_helper.insert_new_scan(name_clean,"target_name") 
+         if not bool(db.fetch_scan_by_name_and_target_id(name_clean,"target_name")):
+               db.insert_new_scan(name_clean,"target_name") 
                
          else:
            flash("scan already exists")   

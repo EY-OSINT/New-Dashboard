@@ -1,6 +1,7 @@
 from calendar import calendar
 import datetime
 import sqlite3
+from . import db
 ##############################################################################################################################################################################################################################################################################################################################
 def fetch_by_name(table_name:str,name:str) -> list:
     database = r"apps/db.sqlite3"
@@ -92,6 +93,21 @@ def fetch_target() -> dict:
             "name": result[1],        }
         todo_list.append(item)
     return todo_list
+    ############################################################################# DOMAIN FUNCTION ####################################################################################################
+    
+#don't change this is used in url.py [GENERAL FUNCTION COULD BE REUSED ] 
+def fetch_by_name_and_id(table_name:str,name:str,column_name:str,id_value:int) -> list:
+    database = r"app/database.db"
+    conn= sqlite3.connect(database)
+    query_results = conn.execute("Select * from "+table_name+" Where name=='"+name+"' AND "+column_name+"=='"+str(id_value)+"';").fetchall()
+   # print (query_results)
+    conn.close()
+    item={}
+    for result in query_results: 
+        item = {
+            "id": result[0],
+            "name": result[1]    }
+    return item
 #########################################################################################################################################################################################################################################################################################################################################################################################################################################################
 
 #don't change this is used in target.py [GENERAL FUNCTION COULD BE REUSED ]    
