@@ -30,18 +30,17 @@ def fetch_all_domains_by_scan_name(scan_name:str,target_name:str) -> dict:
             "name": result[1],        }
         domains_list.append(item)
     return domains_list
-def insert_new_domain(text: str,scan_name:str,target_name: str) ->  int:
-    database = r"app/database.db"
+
+def insert_new_domain(text: str,scan_id:int) ->  int:
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
-    scan= fetch_scan_by_name(scan_name,target_name)
-    scan_id=scan[0].get('id')
+    
     #conn = db.connect()
-    query = 'insert into domain (name) VALUES ( "{}");'.format(text)
-    query2= 'insert into domain (scan_id) VALUES ("{}");'.format(scan_id)
+    query = 'insert into domain (name,scan_id) VALUES ("{}","{}");'.format(text,scan_id)
     conn.execute(query)
-    conn.execute(query2)
+    
     conn.commit()
-    query_results = conn.execute("Select * from Domains where scan_id="+scan_id+";")
+    query_results = conn.execute("Select * from domain where scan_id="+str(scan_id)+";")
     query_results = [x for x in query_results]
     domain_id = query_results[0][0]
     conn.commit()
@@ -49,7 +48,7 @@ def insert_new_domain(text: str,scan_name:str,target_name: str) ->  int:
     return domain_id
 #####################################################SCAN FUNCTIONS #####################################################################################################################################################################################################################################################################################################################################################
 def insert_new_scan(text: str,target_name:str) ->  int:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     #conn = db.connect()
     target=fetch_by_name('target',target_name)
@@ -67,7 +66,7 @@ def insert_new_scan(text: str,target_name:str) ->  int:
 ####################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################################
 #######################################################Target FUNCTIONS #################################################################################################################################################################################################################################################################################################################################################################################
 def insert_new_target(text: str) ->  int:
-    database = r"apps/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     #conn = db.connect()
     query = 'insert into target (name) VALUES ( "{}");'.format(text)
@@ -80,7 +79,7 @@ def insert_new_target(text: str) ->  int:
     conn.close()
     return target_id 
 def fetch_target() -> dict:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
 
     query_results = conn.execute("Select * from target;").fetchall()
@@ -97,7 +96,7 @@ def fetch_target() -> dict:
     
 #don't change this is used in url.py [GENERAL FUNCTION COULD BE REUSED ] 
 def fetch_by_name_and_id(table_name:str,name:str,column_name:str,id_value:int) -> list:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     query_results = conn.execute("Select * from "+table_name+" Where name=='"+name+"' AND "+column_name+"=='"+str(id_value)+"';").fetchall()
    # print (query_results)
@@ -112,7 +111,7 @@ def fetch_by_name_and_id(table_name:str,name:str,column_name:str,id_value:int) -
 
 #don't change this is used in target.py [GENERAL FUNCTION COULD BE REUSED ]    
 def fetch_by_name(table_name:str,name:str) -> list:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     query_results = conn.execute("Select * from "+table_name+" Where name =='"+name+"';").fetchall()
    # print (query_results)
@@ -126,7 +125,7 @@ def fetch_by_name(table_name:str,name:str) -> list:
 
 #don't change this is used in scan.py [SPECIFIC FUNCTION]
 def fetch_scan_by_name(target_name:str) -> dict:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     target=fetch_by_name('target',target_name)
     print(target)
@@ -145,7 +144,7 @@ def fetch_scan_by_name(target_name:str) -> dict:
 
 #don't change this is used in scan.py [SPECIFIC FUNCTION]
 def fetch_scan_by_name_and_target_id(name:str,target_name:str) -> dict:
-    database = r"app/database.db"
+    database = r"apps/db.sqlite3"
     conn= sqlite3.connect(database)
     target=fetch_by_name('target',target_name)
     target_id= target.get('id')

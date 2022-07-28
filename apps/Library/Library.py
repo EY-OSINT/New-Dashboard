@@ -63,5 +63,15 @@ def create_dir_under_scans_folder(module_name, target_name, scan_name):
    
     path_dir=os.getcwd()+"/apps/scan/scans_folder/"+target_name+"/"+scan_name+"/"+module_name
     print(path_dir)
-    os.mkdir(path_dir)
-           
+    try:
+        os.makedirs(path_dir)
+        
+    except OSError as err:
+        print(err)
+
+    
+    
+
+
+
+

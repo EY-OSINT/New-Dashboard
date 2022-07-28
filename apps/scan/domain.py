@@ -3,6 +3,7 @@ import os
 import iptools
 import shutil
 from pathlib import Path
+from apps.models import domain
 import requests
 import json
 from typing import List
@@ -26,6 +27,8 @@ def check(email):
 def main(keyjson,scan_id):
     
     key = json.loads(keyjson)
+    domain_name =str(key['domain'])
+    db.insert_new_domain(domain_name,scan_id)
     link = "https://viewdns.info/reversewhois/?q=" + str(key['domain'])
     print("[-] " +link)
     user_agent = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0"
@@ -96,21 +99,21 @@ def main_ip(keyjson,scan_id):
     tr = bs4(table, "html5lib")
     rows = tr.findAll('tr')   
     l=[]
-    #try:
-    for element in rows:
-        element = str(element)
-        value = element[element.index("<td>") + 4: element.index("</td>")]
+    try:
+        for element in rows:
+            element = str(element)
+            value = element[element.index("<td>") + 4: element.index("</td>")]
+            
+            if value == "Domain":
+                print()
+                    
+            else:
+                l.append(value)
+                db.insert_new_domain(value,scan_id)
         
-        if value == "Domain":
-            print()
-                
-        else:
-            l.append(value)
-            db.insert_new_domain(value,scan_id)
-    
-    #except:
-        #print()
-        #new_var = print("[-] " + key['ip'] + " doesn't have any registered domain names")
+    except:
+        print()
+        new_var = print("[-] " + key['ip'] + " doesn't have any registered domain names")
         
     return l
    
@@ -132,13 +135,16 @@ def domains(target_name,scan_name):
                 if(check(ligne)):
                     domain_from_mail=ligne.split('@')[1]
                     x = '{"domain" :'+ '"'+domain_from_mail +'"'+ '}'
+                    print(x)
                 main(x,scan_id)
             else:
                 x = '{"ip" :'+ '"'+ligne +'"'+ '}'
+                print(x +' this is  an ip ')
                 l=main_ip(x,scan_id)
 
                 for line in l:
                     x = '{"domain" :'+ '"'+line +'"'+ '}'
+                    print(x +' this is  an ip from domain ')
                     main(x,scan_id)
                    
     #except:

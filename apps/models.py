@@ -18,12 +18,13 @@ class scan(db.Model):
     name            = db.Column (db.String)
     date            = db.Column (db.Date)
     target_id       = db.Column (db.Integer,db.ForeignKey('target.id'),nullable=False)
+    """
     subdomain_key   = db.relationship('subdomain',backref='scan', lazy=True, primaryjoin="scan.id==subdomain.scan_id")
     url_key         = db.relationship('url',backref= 'scan',lazy=True, primaryjoin='scan.id==url.scan_id')
     domain_key      = db.relationship('domain',backref='',lazy=True,primaryjoin='scan.id==domain.scan_id')
     path_key        = db.relationship('path',backref= 'scan',lazy=True, primaryjoin='scan.id==path.scan_id')
     github_key      = db.relationship('github',backref= 'scan',lazy=True, primaryjoin='scan.id==github.scan_id')
-
+"""
     def __init__(self, name, date,target_id):
         self.name           = name
         self.date           = date
@@ -33,7 +34,7 @@ class scan(db.Model):
 
 class domain(db.Model): 
     dom_id  =   db.Column(db.Integer, primary_key=True)
-    name    =   db.Column (db.String, unique=True)
+    name    =   db.Column (db.String)
     scan_id =   db.Column (db.Integer,db.ForeignKey('scan.id'),nullable=False)
     def __init__(self, name,dom_id,scan_id):
         self.dom_id         = dom_id
