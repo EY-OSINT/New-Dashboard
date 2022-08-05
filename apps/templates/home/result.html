@@ -1,0 +1,883 @@
+{% extends "layouts/base.html" %} {% block title %} Dashboard {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %} {% block content %}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+    <div class="d-block mb-4 mb-md-0">
+        <nav aria-label="breadcrumb" class="d-none d-md-inline-block">
+            <ol class="breadcrumb breadcrumb-dark breadcrumb-transparent">
+                <li class="breadcrumb-item">
+                    <a href="#">
+                        <svg class="icon icon-xxs" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </a>
+                </li>
+                <li class="breadcrumb-item"><a href="#">Cnous</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Scan result</li>
+            </ol>
+        </nav>
+        <h2 class="h4">Scan result</h2>
+        <p class="mb-0">This webpage contains the final scan output</p>
+    </div>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a href="#" class="btn btn-sm btn-gray-800 d-inline-flex align-items-center">
+            <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+            Start a new scan 
+        </a>
+        <div class="btn-group ms-2 ms-lg-3">
+            <button type="button" class="btn btn-sm btn-outline-gray-600">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-gray-600">Export</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 mb-4">
+        <div class="card bg-yellow-100 border-0 shadow">
+           
+          
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-xl-flex align-items-center">
+                    <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                        <div class="icon-shape icon-shape-primary rounded me-4 me-sm-0">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                        </div>
+                        <div class="d-sm-none">
+                            <h2 class="h5">Customers</h2>
+                            <h3 class="fw-extrabold mb-1">345,678</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-7 px-xl-0">
+                        <div class="d-none d-sm-block">
+                            <h2 class="h6 text-gray-400 mb-0">Total domains</h2>
+                            <h3 class="fw-extrabold mb-2">34 valid domains</h3>
+                        </div>
+                    
+                        <div class="small d-flex mt-1">
+                            <div>Since last scan <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                                <span class="text-success fw-bolder">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-xl-flex align-items-center">
+                    <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                        <div class="icon-shape icon-shape-secondary rounded me-4 me-sm-0">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="d-sm-none">
+                            <h2 class="fw-extrabold h5">Revenue</h2>
+                            <h3 class="mb-1">$43,594</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-7 px-xl-0">
+                        <div class="d-none d-sm-block">
+                            <h2 class="h6 text-gray-400 mb-0">Total Subdomains</h2>
+                            <h3 class="fw-extrabold mb-2">135 subdomains</h3>
+                        </div>
+                        
+                        <div class="small d-flex mt-1">
+                            <div>Since last scan <svg class="icon icon-xs text-danger" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                <span class="text-danger fw-bolder">2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-4 mb-4">
+        <div class="card border-0 shadow">
+            <div class="card-body">
+                <div class="row d-block d-xl-flex align-items-center">
+                    <div class="col-12 col-xl-5 text-xl-center mb-3 mb-xl-0 d-flex align-items-center justify-content-xl-center">
+                        <div class="icon-shape icon-shape-tertiary rounded me-4 me-sm-0">
+                            <svg class="icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <div class="d-sm-none">
+                            <h2 class="fw-extrabold h5"> Bounce Rate</h2>
+                            <h3 class="mb-1">50.88%</h3>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-7 px-xl-0">
+                        <div class="d-none d-sm-block">
+                            <h2 class="h6 text-gray-400 mb-0">Total APK </h2>
+                            <h3 class="fw-extrabold mb-2">22 applications</h3>
+                        </div>
+                       
+                        <div class="small d-flex mt-1">
+                            <div>Since last scan <svg class="icon icon-xs text-success" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                                <span class="text-success fw-bolder">4%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h4>Domain list output</h4>
+    
+            <div class="col-12 mb-4">
+                <div class="card border-0 shadow">
+                    <div class="card card-body border-0 shadow table-wrapper table-responsive">
+                        <table class="table align-items-center table-flush">
+                        <thead>
+                            <tr>
+                                <th class="border-gray-200"># </th>
+                                <th class="border-gray-200">Domain</th>						
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item -->
+                            <tr>
+                                <td>
+                                    <a href="#" class="fw-bold">
+                                        10
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="fw-normal">nuonet.fr</span>
+                                </td>
+                             
+                               
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td>
+                                    <a href="#" class="fw-bold">
+                                        11
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="fw-normal">lescrous.fr</span>
+                                </td>
+                             
+                               
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td>
+                                    <a href="#" class="fw-bold">
+                                        12
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="fw-normal">izly.fr</span>
+                                </td>
+                             
+                               
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td>
+                                    <a href="#" class="fw-bold">
+                                        13
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="fw-normal">crousandgo.fr</span>
+                                </td>
+                             
+                               
+                            </tr>
+                            <!-- Item -->
+                            <tr>
+                                <td>
+                                    <a href="#" class="fw-bold">
+                                        14
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="fw-normal">europeanstudentcard.eu</span>
+                                </td>
+                             
+                               
+                            </tr>
+                                       
+                        </tbody>
+                        </table>
+                        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination mb-0">
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Previous</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">4</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">5</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>34</b> entries</div>
+                        </div>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        
+
+<h4>Subdomain list output</h4>
+<div class="card card-body border-0 shadow table-wrapper table-responsive mb-4">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th class="border-gray-200">#</th>
+                <th class="border-gray-200">Subdomain</th>						
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        1
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">Platinum Subscription Plan</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        2
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">enqueteru-test.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        3
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">wikiorion.ng.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        4
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">autodiscover.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        5
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">pleiadesdev.ng.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        6
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">enterpriseenrollment.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        7
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">clous.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        8
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">stones.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        9
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">ntp.cnous.fr</span>
+                </td>
+                
+            </tr>
+            <!-- Item -->
+            <tr>
+                <td>
+                    <a href="#" class="fw-bold">
+                        10
+                    </a>
+                </td>
+                <td>
+                    <span class="fw-normal">intranet.cnous.fr</span>
+                </td>
+                
+            </tr>                         
+        </tbody>
+    </table>
+    <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination mb-0">
+                <li class="page-item">
+                    <a class="page-link" href="#">Previous</a>
+                </li>
+                <li class="page-item active" >
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item ">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="fw-normal small mt-4 mt-lg-0">Showing <b>10</b> out of <b>135</b> entries</div>
+    </div>
+</div>
+ <h4>URL list output</h4>
+<div class="mb-4"><a>You can browse for <mark>screenshots</mark> related to the  URL list through this link: <u>http://aquatone_report.html</u></a></div>
+    <div class="card card-body border-0 shadow table-wrapper table-responsive mb-4">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="border-gray-200">#</th>
+                    <th class="border-gray-200">URL</th>						
+                    <th class="border-gray-200">Status code</th>
+                    <th class="border-gray-200">Content length</th>
+                    <th class="border-gray-200">Title</th>
+                    <th class="border-gray-200">Technologie</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            1
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">https://catalog.google.com</span>
+                    </td>
+                    <td><span class="fw-normal text-danger">404</span></td>                        
+                    <td><span class="fw-normal">0</span></td>
+                    <td><span class="fw-bold">Error 404 (Not Found)</span></td>
+                    <td><span class="fw-bold">-</span></td>
+                    
+                </tr>
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            2
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">https://developers.google.com</span>
+                    </td>
+                    <td><span class="fw-normal text-success">200</span></td>                        
+                    <td><span class="fw-normal">141762</span></td>
+                    <td><span class="fw-bold">Google Developers</span></td>
+                    <td><span class="fw-bold">Google App Engine,Google Cloud,Google Cloud Trace,Google Font API</span></td>
+                    
+                </tr> 
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            3
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">http://secure.facebook.com</span>
+                    </td>
+                    <td><span class="fw-normal text-warning">307</span></td>                        
+                    <td><span class="fw-normal">289</span></td>
+                    <td><span class="fw-bold">-</span></td>
+                    <td><span class="fw-bold ">lighttpd</span></td>
+                   
+                </tr> 
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            4
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">http://vip.facebook.com</span>
+                    </td>
+                    <td><span class="fw-normal text-warning ">307</span></td>                        
+                    <td><span class="fw-normal">286</span></td>
+                    <td><span class="fw-bold">-</span></td>
+                    <td><span class="fw-bold ">lighttpd</span></td>
+                    
+                </tr> 
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            5
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">http://developers.google.com</span>
+                    </td>
+                    <td><span class="fw-normal text-warning">301</span></td>                        
+                    <td><span class="fw-normal">0</span></td>
+                    <td><span class="fw-bold">-</span></td>
+                    <td><span class="fw-bold ">Google App Engine,Google Cloud,Google Cloud Trace</span></td>
+                   
+                </tr> 
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            6
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">https://dns.google.com</span>
+                    </td>
+                    <td><span class="fw-normal text-warning">302</span></td>                        
+                    <td><span class="fw-normal">216</span></td>
+                    <td><span class="fw-bold">303 moved</span></td>
+                    <td><span class="fw-bold">-</span></td>
+                   
+                </tr> 
+                <!-- Item -->
+                <!-- Item -->
+                <tr>
+                    <td>
+                        <a href="#" class="fw-bold">
+                            7
+                        </a>
+                    </td>
+                    <td>
+                        <span class="fw-normal">https://premier.facebook.com</span>
+                    </td>
+                    <td><span class="fw-normal text-success">200</span></td>                        
+                    <td><span class="fw-normal">866</span></td>
+                    <td><span class="fw-bold">Redirecting...</span></td>
+                    <td><span class="fw-bold ">-</span></td>
+                    
+                </tr> 
+               
+                                      
+            </tbody>
+        </table>
+        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination mb-0">
+                    <li class="page-item">
+                        <a class="page-link" href="#">Previous</a>
+                    </li>
+                    <li class="page-item active">
+                        <a class="page-link " href="#">1</a>
+                    </li>
+                    <li class="page-item ">
+                        <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">4</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">5</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="fw-normal small mt-4 mt-lg-0">Showing <b>7</b> out of <b>135</b> entries</div>
+        </div>    
+    </div>
+
+
+    <h4>Service list output</h4>
+    <div class="mb-4"><a>You can browse for <mark>the NMAP report</mark> related to the services list through this link: <u>http://nmap_output.html</u></a></div>
+        <div class="card card-body border-0 shadow table-wrapper table-responsive mb-4">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="border-gray-200">#</th>
+                        <th class="border-gray-200">Service name</th>						
+                        <th class="border-gray-200">hostname</th>
+                        <th class="border-gray-200">IP address</th>
+                        <th class="border-gray-200">Port</th>
+                        <th class="border-gray-200">CVE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Item -->
+                    <tr>
+                        <td>
+                            <a href="#" class="fw-bold">
+                                1
+                            </a>
+                        </td>
+                        <td>
+                            <span class="fw-normal">apache:http_server</span>
+                        </td>
+                        <td><span class="fw-normal">-</span></td>                        
+                        <td><span class="fw-normal">156.226.146.226</span></td>
+                        <td><span class="fw-bold">80</span></td>
+                        <td><span class="fw-bold">-</span></td>
+                        
+                    </tr>
+                    <!-- Item -->
+                    <tr>
+                        <td>
+                            <a href="#" class="fw-bold">
+                                2
+                            </a>
+                        </td>
+                        <td>
+                            <span class="fw-normal">cpe:/a:mysql:mysql:5.7.37-nmm1-log cpe:/a:igor_sysoev:nginx</span>
+                        </td>
+                        <td><span class="fw-normal ">kasserver.com dd5208.kasserver.com</span></td>                        
+                        <td><span class="fw-normal">85.13.130.67</span></td>
+                        <td><span class="fw-bold">21 25 80 110 143 443 465 587 993 995 3306</span></td>
+                        <td><span class="fw-bold">-</span></td>
+                        
+                    </tr> 
+                    <!-- Item -->
+                    <tr>
+                        <td>
+                            <a href="#" class="fw-bold">
+                                3
+                            </a>
+                        </td>
+                        <td>
+                            <span class="fw-normal">cpe:/o:linux:linux_kernel cpe:/a:openbsd:openssh:6.0p1 cpe:/a:apache:http_server:2.2.22 cpe:/o:debian:debian_linux</span>
+                        </td>
+                        <td><span class="fw-normal ">www.bikemastertool.com bikemastertool.com</span></td>                        
+                        <td><span class="fw-normal">209.160.40.30</span></td>
+                        <td><span class="fw-bold">22 80 123 443</span></td>
+                        <td><span class="fw-bold ">CVE-2013-1862 CVE-2017-7668 CVE-2017-3169 CVE-2013-2249 CVE-2013-6438 CVE-2017-3167 CVE-2014-0098 CVE-2016-4975</span></td>
+                       
+                    </tr> 
+                    <!-- Item -->
+                    <tr>
+                        <td>
+                            <a href="#" class="fw-bold">
+                                4
+                            </a>
+                        </td>
+                        <td>
+                            <span class="fw-normal">cpe:/a:igor_sysoev:nginx</span>
+                        </td>
+                        <td><span class="fw-normal">-</span></td>                        
+                        <td><span class="fw-normal">154.90.33.51</span></td>
+                        <td><span class="fw-bold">80 135</span></td>
+                        <td><span class="fw-bold ">-</span></td>
+                        
+                    </tr> 
+                    <!-- Item -->
+                    <tr>
+                        <td>
+                            <a href="#" class="fw-bold">
+                                5
+                            </a>
+                        </td>
+                        <td>
+                            <span class="fw-normal">cpe:/a:apache:http_server cpe:/a:jquery:jquery</span>
+                        </td>
+                        <td><span class="fw-normal >www.siel.nl siel.nl cdn.siel.nl pay.siel.nl</span></td>                        
+                        <td><span class="fw-normal">82.94.250.137</span></td>
+                        <td><span class="fw-bold">80 443</span></td>
+                        <td><span class="fw-bold ">-</span></td>
+                       
+                    </tr> 
+                    <!-- Item -->
+                    <tr>
+                        <td>
+                            <a href="#" class="fw-bold">
+                                6
+                            </a>
+                        </td>
+                        <td>
+                            <span class="fw-normal">cpe:/a:igor_sysoev:nginx</span>
+                        </td>
+                        <td><span class="fw-normal ">-</span></td>                        
+                        <td><span class="fw-normal">154.90.33.51</span></td>
+                        <td><span class="fw-bold">80 135 445</span></td>
+                        <td><span class="fw-bold">-</span></td>
+                       
+                    </tr> 
+                    <!-- Item -->
+                  
+                   
+                                          
+                </tbody>
+            </table>
+            <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination mb-0">
+                        <li class="page-item">
+                            <a class="page-link" href="#">Previous</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link " href="#">1</a>
+                        </li>
+                        <li class="page-item ">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">5</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="fw-normal small mt-4 mt-lg-0">Showing <b>6</b> out of <b>135</b> entries</div>
+            </div>    
+        </div>
+    
+            <h4>Javascript file findings </h4>
+                <div class="card card-body border-0 shadow table-wrapper table-responsive mb-4">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="border-gray-200">#</th>
+                                <th class="border-gray-200">file name</th>						
+                                <th class="border-gray-200">Secrets</th>
+                                <th class="border-gray-200">Endpoint</th>
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item -->
+                            <tr>
+                                <td>
+                                    <a href="#" class="fw-bold">
+                                        1
+                                    </a>
+                                </td>
+                                <td>
+                                    <span class="fw-normal">https://cnous/app.js</span>
+                                </td>                      
+                                <td><span class="fw-normal">possible_Creds	->	password="@@ad@@admin";</span></td>
+                                <td><span class="fw-bold">-</span></td>
+                                
+                            </tr>
+                            
+                                                  
+                        </tbody>
+                    </table>
+                    <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination mb-0">
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Previous</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link " href="#">1</a>
+                                </li>
+                             
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="fw-normal small mt-4 mt-lg-0">Showing <b>1</b> out of <b>1</b> entries</div>
+                    </div>    
+                </div>
+
+                <h4>APK Findings</h4>
+                    <div class="card card-body border-0 shadow table-wrapper table-responsive mb-4">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="border-gray-200">#</th>
+                                    <th class="border-gray-200">APK name</th>						
+                                    <th class="border-gray-200">Finding</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Item -->
+                                <tr>
+                                    <td>
+                                        <a href="#" class="fw-bold">
+                                            1
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="fw-normal">Facebook_Secret_Key</span>
+                                    </td>
+                                    <td><span class="fw-normal">FBF_HASH = '2438bce1ddb7bd026d5ff89f598b3b5e, FBI_HASH = 'a4b7452e2ed8f5f191058ca7bbfd26b0, FBL2_HASH = 'df6b721c8b4d3b6eb44c861d4415007e, FBL_HASH = '5e8f16062ea3cd2c4a0d547876baa6f3, FBR2_HASH = 'cc2751449a350f668590264ed7669269, FBR_HASH = '8a3c4b262d721acd49a4bf97d5213199, || ckc.n.equals('00000000000000000000000000000000</span></td>                        
+                                </tr>
+                                <!-- Item -->
+                                <tr>
+                                    <td>
+                                        <a href="#" class="fw-bold">
+                                            2
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="fw-normal">Generic_API_Key</span>
+                                    </td>
+                                    <td><span class="fw-normal ">ApiKey' android:value='d3422059c25f96d51d333ef635ad7ea5c2681044', api_key', 'AIzaSyDRKQ9d6kfsoZT2lUnZcZnBYvH69HExNPE'</span></td>                        
+                            
+                                </tr> 
+                                <!-- Item -->
+                                <tr>
+                                    <td>
+                                        <a href="#" class="fw-bold">
+                                            3
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="fw-normal">Artifactory_Password</span>
+                                    </td>
+                                    <td><span class="fw-normal "> AP9fhjKa3NyOJg1xFD1kz9GZ7R5XfjZZsO0xSpMmOkc,  APDlBAEntiIaWx9BIGSupbDovvHEsxGqYT8cm2kcx</span></td>                        
+                                   
+                                   
+                                </tr> 
+                                <!-- Item -->
+                                <tr>
+                                    <td>
+                                        <a href="#" class="fw-bold">
+                                            4
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="fw-normal">IP_Address</span>
+                                    </td>
+                                    <td><span class="fw-normal">1.1.6.1, 1.3.12.1, 1.3.8.1, 2.3.10.1, 2.5.7.1, 3.6.4.1, 5.25.1.4</span></td>                        
+                                   
+                                </tr> 
+                                <!-- Item -->
+                                <tr>
+                                    <td>
+                                        <a href="#" class="fw-bold">
+                                            5
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <span class="fw-normal">Generic_API_Key</span>
+                                    </td>
+                                    <td><span class="fw-normal" >AIzaSyBiZFOpRQ_jEWGE7J3n6p0Ju1zkVVPmw5s, AIzaSyDNldAMUJvoOJf0Sh0327fOyR8W97ERoys, AIzaSyDRKQ9d6kfsoZT2lUnZcZnBYvH69HExNPE </span></td>                        
+                                    
+                                </tr> 
+                                <!-- Item -->
+                            
+                              
+                               
+                                                      
+                            </tbody>
+                        </table>
+                        <div class="card-footer px-3 border-0 d-flex flex-column flex-lg-row align-items-center justify-content-between">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Previous</a>
+                                    </li>
+                                    <li class="page-item active">
+                                        <a class="page-link " href="#">1</a>
+                                    </li>
+                                    <li class="page-item ">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">3</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">4</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">5</a>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="fw-normal small mt-4 mt-lg-0">Showing <b>5</b> out of <b>22</b> entries</div>
+                        </div>    
+                    </div>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
