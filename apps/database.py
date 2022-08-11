@@ -107,8 +107,23 @@ def fetch_by_name_and_id(table_name:str,name:str,column_name:str,id_value:int) -
             "id": result[0],
             "name": result[1]    }
     return item
-#########################################################################################################################################################################################################################################################################################################################################################################################################################################################
+######################################################################URL_FUNCTION################################################################################################################################################################################################################################################################################################################################################################################"
+def insert_new_url(text: str,code: str,leng: str,titre: str,tech: str,scan_id:int) ->  int:
+    database = r"apps/db.sqlite3"
+    conn= sqlite3.connect(database)
+    #conn = db.connect()
+    query = 'insert into url (name,stcode,content_length,title,technologie,scan_id) VALUES ( "{}","{}","{}","{}","{}","{}");'.format(text,code,leng,titre,tech,scan_id)
+    print(query)
+    conn.execute(query)
+    conn.commit()
+    query_results = conn.execute("Select * from scan;")
+    query_results = [x for x in query_results]
+    url_id = query_results[0][0]
+    conn.commit()
+    conn.close()
+    return url_id 
 
+########################################################################################################################################################""
 #don't change this is used in target.py [GENERAL FUNCTION COULD BE REUSED ]    
 def fetch_by_name(table_name:str,name:str) -> list:
     database = r"apps/db.sqlite3"

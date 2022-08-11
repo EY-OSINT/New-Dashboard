@@ -80,7 +80,7 @@ def scan_config():
             f=request.files['input']
             Library.create_dir_under_scans_folder("domain", target_name, scan_name)
             f.save(os.path.join(os.getcwd(),r"apps/scan/scans_folder/",target_name,scan_name,r"domain/upload.txt"))
-            domain.domains(target_name,scan_name)
+            #domain.domains(target_name,scan_name)
         else:
 
             print('ENTER YOUR OWN LIST')
@@ -107,6 +107,8 @@ def scan_config():
             directory_listing.dirserach(target_name,scan_name)
 
         if 'URL_Module' in request.form:
+            Library.create_dir_under_scans_folder("url", target_name, scan_name)
+            url.url(target_name,scan_name)
             print('URL_Module')
         if 'Shodan_Module' in request.form:
             print ('Shodan_Module')
@@ -121,7 +123,8 @@ def scan_config():
         return render_template(url_for('scan_blueprint.all_scans'))
     return render_template('home/conf-scan.html',segment='conf-scan',form=scan_form)
 
-
+def result():
+ return render_template('home/result.html',segment='result')
 @blueprint.route('/all_scans',methods=["GET","POST"])
 @login_required
 def all_scans():

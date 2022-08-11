@@ -42,3 +42,18 @@ class domain(db.Model):
         self.scan_id        = scan_id
     def __repr__(self):
         return str(self.id) + ' - ' + str(self.domain)        
+
+class url(db.Model):
+    url_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column (db.String,unique=False)
+    stcode = db.Column (db.String)
+    content_length = db.Column (db.String)
+    title = db.Column (db.String)
+    technologie = db.Column (db.String)
+    scan_id = db.Column (db.Integer,db.ForeignKey('scan.id'),nullable=False)
+    def __init__(self, name, stcode, content_length, title, technologie):
+        self.name        = name
+        self.stcode      = stcode
+        self.content_length = content_length
+        self.title = title
+        self.technologie = technologie

@@ -2,9 +2,9 @@ import os
 from flask          import render_template, request, url_for, redirect
 from flask          import Flask
 from wtforms        import Form
-from apps import database as db_helper
+import subprocess
 import datetime
-
+from .. import  database as db
 
 
 def clean_domain(line: str) -> str:
@@ -41,19 +41,27 @@ def read_file(file_name: str) -> list[str]:
 
 
 #@app.route('/url/<target_name>/<scan_name>/<pagination>',methods=['POST','GET'])
-
-def url(target_name,scan_name,pagination):
-    ROWS_PER_PAGE = 5
+#na7it kelemet pagination 7dhe scan name 
+def url(target_name,scan_name):
+    #ROWS_PER_PAGE = 5
 
     #commentit bech neviti httpx ye5dem  kol mantesti 
-    http_extract= 'cat'+ ' app/subdomains.txt' + '| httpx -nc -sc -title -cl -td -p 80,443,4443,8443,8080,8000 -o output1.txt'
-    os.system( http_extract)
-    target=db_helper.fetch_by_name('target',target_name)
+    os.system("pwd")
+    #http_extract= 'cat'+ " apps/scan/scans_folder/"+target_name+"/"+scan_name+"/subdomain/subdomain_output.txt " + '| httpx -nc -sc -title -cl -td -p 80,443,4443,8443,8080,8000 -o apps/scan/scans_folder/'+target_name+"/"+scan_name+"/url/url_output.txt"
+    #print(http_extract)
+    dir = os.getcwd()
+    file = os.path.join(dir,r"apps/scan/scans_folder/",target_name,scan_name,r"subdomain/subdomain_output.txt")
+    httpx_output = os.path.join(dir,r"apps/scan/scans_folder/",target_name,scan_name,r"url/url_output.txt")
+
+    http=subprocess.Popen(["cat", file],stdout=subprocess.PIPE)
+    #os.system( http_extract) "-nc","-sc","-title","-cl","-td","-p","80","443","4443","8443","8080","8000",
+    subprocess.run(["httpx","-o",httpx_output],stdin=http.stdout)
+    target=db.fetch_by_name('target',target_name)
     target_id=target.get('id')
 
-    scan=db_helper.fetch_by_name_and_id("scan",scan_name,"target_id",target_id)
+    scan=db.fetch_by_name_and_id("scan",scan_name,"target_id",target_id)
     scan_id=scan.get('id')
-    lines = read_file("output1.txt")
+    lines = read_file("apps/scan/scans_folder/"+target_name+"/"+scan_name+"/url/url_output")
     for line in lines:
         line+="[]"
         
@@ -64,8 +72,9 @@ def url(target_name,scan_name,pagination):
         tech= technologie(line)
        
         #commentit bech neviti insertion kol mantesti 
-        #db_helper.insert_new_url(clean,status,content,titre,tech,scan_id)
-        items = db_helper.fetch_url()
+        db.insert_new_url(clean,status,content,titre,tech,scan_id)
+        """
+        items = db.fetch_url()
         outfile = open("app/urls.txt", "w")
         for item in items:
                 nom=item['name']
@@ -79,3 +88,4 @@ def url(target_name,scan_name,pagination):
     if request.form.get('Send') == 'Send': 
         return redirect(url_for('aquatone',scan_name=scan_name))     
     return render_template('pages/url.html',items=items,items_display=items_display ,items_length=items_length)     
+"""
