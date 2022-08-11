@@ -10,11 +10,7 @@ from apps.models import target
 from apps.models import scan
 from apps.models import domain
 
-from . import subdomain
-from . import domain
-from . import url
-from . import aquatone
-from . import screenshots
+from . import subdomain,domain,directory_listing
 from apps.scan import blueprint
 from flask_login import login_required 
 from werkzeug.utils import secure_filename
@@ -102,7 +98,14 @@ def scan_config():
             subdomain.Custom(target_name,scan_name)
         #Directory Listing Module
         if 'Directory_Module' in request.form:
+            try:
+                print(os.getcwd())
+                os.system("mkdir -p apps/scan/scans_folder/"+target_name+"/"+scan_name+"/directory")
+            except:
+                print("do not create the same folder twice")
             print('Custom_dir')
+            directory_listing.dirserach(target_name,scan_name)
+
         if 'URL_Module' in request.form:
             print('URL_Module')
         if 'Shodan_Module' in request.form:

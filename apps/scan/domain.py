@@ -126,29 +126,29 @@ def domains(target_name,scan_name):
     target_id=target.get('id')
     scan=db.fetch_by_name_and_id("scan",scan_name,"target_id",target_id)
     scan_id=scan.get('id')
-    #try:    
+    try:    
         
-    f=open(file).read() 
-    for ligne in f.split('\n'):
-            x = '{"domain" :'+ '"'+ligne +'"'+ '}'
-            if not iptools.ipv4.validate_ip(ligne):
-                if(check(ligne)):
-                    domain_from_mail=ligne.split('@')[1]
-                    x = '{"domain" :'+ '"'+domain_from_mail +'"'+ '}'
-                    print(x)
-                main(x,scan_id)
-            else:
-                x = '{"ip" :'+ '"'+ligne +'"'+ '}'
-                print(x +' this is  an ip ')
-                l=main_ip(x,scan_id)
-
-                for line in l:
-                    x = '{"domain" :'+ '"'+line +'"'+ '}'
-                    print(x +' this is  an ip from domain ')
+        f=open(file).read() 
+        for ligne in f.split('\n'):
+                x = '{"domain" :'+ '"'+ligne +'"'+ '}'
+                if not iptools.ipv4.validate_ip(ligne):
+                    if(check(ligne)):
+                        domain_from_mail=ligne.split('@')[1]
+                        x = '{"domain" :'+ '"'+domain_from_mail +'"'+ '}'
+                        print(x)
                     main(x,scan_id)
-                   
-    #except:
-	 #   print("you have been banned  ")
+                else:
+                    x = '{"ip" :'+ '"'+ligne +'"'+ '}'
+                    print(x +' this is  an ip ')
+                    l=main_ip(x,scan_id)
+
+                    for line in l:
+                        x = '{"domain" :'+ '"'+line +'"'+ '}'
+                        print(x +' this is  an ip from domain ')
+                        main(x,scan_id)
+                    
+    except:
+	    print("you have been banned  ")
 
 
 
