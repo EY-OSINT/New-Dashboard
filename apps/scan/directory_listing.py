@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup as bs4
 from re import sub
 from wsgiref.util import request_uri 
 from flask import Flask,render_template, request, url_for, redirect
-import database as db
+from .. import database as db
 import   sys 
 import   os
 import hashlib
